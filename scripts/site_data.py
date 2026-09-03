@@ -241,6 +241,15 @@ def extract_problem(readme: str) -> str:
         para = first_meaningful_paragraph(match.group(1))
         if para:
             return para
+    why = re.search(
+        r"(?:Why [^\n?]+\??|为什么[^\n]*)\s*\n+(.+?)(?:\n#{1,3}\s|\Z)",
+        readme,
+        flags=re.S,
+    )
+    if why:
+        para = first_meaningful_paragraph(why.group(1))
+        if para:
+            return para
     return ""
 
 

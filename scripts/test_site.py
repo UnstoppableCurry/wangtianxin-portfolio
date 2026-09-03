@@ -97,6 +97,17 @@ def test_pages(ctx: dict) -> None:
         fail("home should not dump the full archive grid")
     if archive.count("data-item") != 66:
         fail(f"archive should list 66 items, got {archive.count('data-item')}")
+    if home.count('class="feature"') != 7:
+        fail(f"home should feature 7 demo-first works, got {home.count('class=\"feature\"')}")
+    cat_sum = sum(c["count"] for c in ctx["categories"])
+    if cat_sum != 66:
+        fail(f"category counts should sum to 66, got {cat_sum}")
+    seal = len(re.findall(r'data-category="vision-seal"', archive))
+    if seal != 12:
+        fail(f"archive should mark 12 vision-seal items, got {seal}")
+    demo_marked = len(re.findall(r'data-demo="1"', archive))
+    if demo_marked != ctx["counts"]["demo"]:
+        fail("archive demo flags should match enriched demo count")
 
 
 def test_apps_and_urls(ctx: dict) -> None:

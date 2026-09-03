@@ -38,10 +38,10 @@ site/assets/      CSS / JS / 印章 favicon 与纸纹
 ```bash
 python3 scripts/build.py
 python3 scripts/test_site.py
-python3 -m http.server 4173 --directory dist
+python3 scripts/serve.py
 ```
 
-打开 <http://localhost:4173/>。
+打开 <http://127.0.0.1:4173/>。`serve.py` 会像 GitHub Pages 一样对未知路径返回 `404.html`。也可用 `python3 -m http.server 4173 --directory dist`，但标准库服务器不会回落自定义 404。
 
 模拟 GitHub Pages 的子路径：
 

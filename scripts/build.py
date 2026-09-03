@@ -101,7 +101,7 @@ def layout(
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="{e(href())}">
-        <img class="brand-mark" src="{e(file_href('assets/img/favicon.svg'))}" alt="">
+        <img class="brand-mark" src="{e(file_href('assets/img/seal.svg'))}" alt="">
         <span><span class="brand-name">王天信</span><span class="brand-sub">工作编年</span></span>
       </a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">菜单</button>
@@ -137,9 +137,11 @@ def buttons(links: list[dict[str, str]], fallback_detail: str | None = None) -> 
     if not primary_done:
         if fallback_detail:
             parts.insert(0, f'<a class="btn btn-primary" href="{e(fallback_detail)}">查看详情</a>')
+            if repo:
+                parts.append(f'<a class="btn btn-ghost" href="{e(repo["url"])}">仓库</a>')
         elif repo:
-            parts.insert(0, f'<a class="btn btn-primary" href="{e(repo["url"])}">查看仓库</a>')
-    if repo:
+            parts.append(f'<a class="btn btn-primary" href="{e(repo["url"])}">查看仓库</a>')
+    elif repo:
         parts.append(f'<a class="btn btn-ghost" href="{e(repo["url"])}">仓库</a>')
     return "".join(parts)
 
@@ -481,7 +483,7 @@ def render_archive(ctx: dict) -> str:
           <div class="filter-row" role="group" aria-label="分类快捷">
             {chips}
           </div>
-          <div class="filter-row">
+          <div class="filter-controls">
             <label>分类 <select data-filter-category><option value="all">全部分类</option>{cat_opts}</select></label>
             <label>年份 <select data-filter-year><option value="all">全部年份</option>{year_opts}</select></label>
             <label>可见性 <select data-filter-visibility>
@@ -543,6 +545,7 @@ def render_detail(item: dict, ctx: dict) -> str:
         <h1>{e(item['name'])}</h1>
         {capsules_for(item)}
         {privacy}
+        <div class="btn-row">{buttons(item['links'], None)}</div>
         <h2>问题</h2>
         <p>{e(problem)}</p>
         <h2>做了什么</h2>
