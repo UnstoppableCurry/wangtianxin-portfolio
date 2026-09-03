@@ -23,9 +23,9 @@ site/assets/      CSS / JS / 印章 favicon 与纸纹
 
 | 路径 | 说明 |
 | --- | --- |
-| `/` | 首页：编年、能力地图、论文、可演示主线、App Store、token 账本 |
-| `/archive/` | 可检索、可筛选的完整目录 |
-| `/p/<repo>/` | 每一条仓库的独立详情页 |
+| `/wangtianxin-portfolio/` | 首页：编年、能力地图、论文、可演示主线、App Store、token 账本 |
+| `/wangtianxin-portfolio/archive/` | 可检索、可筛选的完整目录 |
+| `/wangtianxin-portfolio/p/<repo>/` | 每一条仓库的独立详情页 |
 | `/404.html` | 未找到页面 |
 | `/sitemap.xml` `/robots.txt` | SEO |
 
@@ -41,17 +41,9 @@ python3 scripts/test_site.py
 python3 scripts/serve.py
 ```
 
-打开 <http://127.0.0.1:4173/>。`serve.py` 会像 GitHub Pages 一样对未知路径返回 `404.html`。也可用 `python3 -m http.server 4173 --directory dist`，但标准库服务器不会回落自定义 404。
+默认 `SITE_BASE=/wangtianxin-portfolio`，与 GitHub Pages 项目站一致。打开 <http://127.0.0.1:4173/wangtianxin-portfolio/>。根路径 `/` 会重定向到该前缀。`serve.py` 对未知路径返回 `404.html`。
 
-模拟 GitHub Pages 的子路径：
-
-```bash
-SITE_BASE=/wangtianxin-portfolio \
-CANONICAL_BASE=https://unstoppablecurry.github.io/wangtianxin-portfolio \
-python3 scripts/build.py
-```
-
-此时请把静态服务器挂到带前缀的路径，或用支持 `--mount` 的预览方式。
+不要用 `python3 -m http.server --directory dist` 直接预览：页面里的 `/wangtianxin-portfolio/assets/...` 在未挂前缀的服务器上会 404（这也是线上印章图曾经破图的原因）。
 
 ## GitHub Pages 部署
 

@@ -4,13 +4,22 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
 
+from htmlutil import asset, page_url
 from site_data import ROOT, build_context, extract_bilibili_demo
 
 DIST = ROOT / "dist"
+PAGES_BASE = os.environ.get("SITE_BASE", "/wangtianxin-portfolio").rstrip("/")
+REQUIRED_PREFIXED_ASSETS = [
+    "assets/img/seal.svg",
+    "assets/img/favicon.svg",
+    "assets/css/main.css",
+    "assets/js/main.js",
+]
 FORBIDDEN_URL_PATTERNS = [
     r"example\.com",
     r"placeholder\.(com|net|org)",
@@ -150,6 +159,55 @@ def test_tokens_exact(ctx: dict) -> None:
         fail("domain source names should appear")
 
 
+def test_url_helpers() -> None:
+    base = "/wangtianxin-portfolio"
+    if asset(base, "assets/img/seal.svg") != "/wangtianxin-portfolio/assets/img/seal.svg":
+        fail("asset() must prefix GitHub Pages project paths")
+    if asset("", "assets/img/seal.svg") != "/assets/img/seal.svg":
+        fail("asset() with empty base should stay site-root")
+    if page_url(base, "") != "/wangtianxin-portfolio/":
+        fail("home page_url must keep the project base")
+    if page_url(base, "archive") != "/wangtianxin-portfolio/archive/":
+        fail("archive page_url must keep the project base")
+    if page_url(base, "p/onnx2anything") != "/wangtianxin-portfolio/p/onnx2anything/":
+        fail("detail page_url must keep the project base")
+
+
+def test_github_pages_asset_urls() -> None:
+    """Catch /assets/... and document-relative assets/ that 404 on project Pages."""
+    if not PAGES_BASE:
+        fail("SITE_BASE must be set for GitHub Pages project-site tests")
+    html_files = list(DIST.rglob("*.html"))
+    if not html_files:
+        fail("no HTML files in dist/")
+    blob = "\n".join(read(path) for path in html_files)
+    for rel in REQUIRED_PREFIXED_ASSETS:
+        expected = f"{PAGES_BASE}/{rel}"
+        if expected not in blob:
+            fail(f"missing prefixed asset URL {expected}")
+        if not (DIST / rel).is_file():
+            fail(f"asset file missing from dist: {rel}")
+
+    broken = []
+    for path in html_files:
+        html = read(path)
+        for url in re.findall(r'(?:src|href)="([^"]+)"', html):
+            if url.startswith(("https://", "http://", "mailto:", "#")):
+                continue
+            if url.startswith("/assets/") or url.startswith("assets/"):
+                broken.append(f"{path.relative_to(DIST)} -> {url}")
+                continue
+            if url.startswith("/") and not (
+                url == PAGES_BASE + "/" or url.startswith(PAGES_BASE + "/")
+            ):
+                broken.append(f"{path.relative_to(DIST)} -> {url}")
+    if broken:
+        fail(
+            "root-relative or unprefixed URLs would break on GitHub Pages "
+            f"project site {PAGES_BASE}/:\n  " + "\n  ".join(broken[:20])
+        )
+
+
 def test_no_private_readme_leak(ctx: dict) -> None:
     for item in ctx["items"]:
         if not item["private"]:
@@ -163,10 +221,12 @@ def main() -> None:
     if not DIST.exists():
         fail("dist/ missing; run python3 scripts/build.py first")
     ctx = test_json_loads()
+    test_url_helpers()
     test_pages(ctx)
     test_apps_and_urls(ctx)
     test_tokens_exact(ctx)
     test_no_private_readme_leak(ctx)
+    test_github_pages_asset_urls()
     print(
         "PASS: "
         f"{ctx['counts']['all']} catalog items, "

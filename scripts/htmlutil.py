@@ -20,15 +20,33 @@ def format_cn_count(n: int) -> str:
     return format_int(n)
 
 
+def normalize_base(base: str | None) -> str:
+    return (base or "").rstrip("/")
+
+
+def join_base(base: str, path: str) -> str:
+    """Root-relative URL that keeps a GitHub Pages project prefix.
+
+    `/wangtianxin-portfolio` + `assets/img/seal.svg`
+    -> `/wangtianxin-portfolio/assets/img/seal.svg`
+    Empty base stays site-root (`/assets/...`) for user pages only.
+    """
+    base = normalize_base(base)
+    path = path.lstrip("/")
+    if not path:
+        return f"{base}/" if base else "/"
+    return f"{base}/{path}" if base else f"/{path}"
+
+
 def asset(base: str, path: str) -> str:
-    return f"{base}/{path.lstrip('/')}"
+    return join_base(base, path)
 
 
 def page_url(base: str, path: str) -> str:
     path = path.strip("/")
     if not path:
-        return f"{base}/" if base else "/"
-    return f"{base}/{path}/"
+        return join_base(base, "")
+    return join_base(base, path) + "/"
 
 
 def sanitize_readme(text: str) -> str:
