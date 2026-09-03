@@ -16,7 +16,7 @@ DIST = ROOT / "dist"
 CANONICAL_BASE = os.environ.get(
     "CANONICAL_BASE", "https://unstoppablecurry.github.io/wangtianxin-portfolio"
 ).rstrip("/")
-SITE_BASE = os.environ.get("SITE_BASE", "").rstrip("/")
+SITE_BASE = os.environ.get("SITE_BASE", "/wangtianxin-portfolio").rstrip("/")
 SITE_NAME = "王天信 · 工作编年"
 SITE_DESC = (
     "王天信（Tianxin Wang）的中文作品集：印章/印模计算机视觉、OCR 文档比对、"
