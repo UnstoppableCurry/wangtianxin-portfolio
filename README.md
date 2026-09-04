@@ -8,13 +8,16 @@
 
 ```
 data/
-  catalog.json    66 个自有非 fork 仓库（公开仓含 README 摘录；私有仓只有安全的名称/描述）
-  tokens.json     memeory 日聚合的 token 用量（设备 / 月份 / 项目名）
-  apps.json       3 个 App Store 产品及站点
+  catalog.json            66 个自有非 fork 仓库（公开仓含 README 摘录；私有仓只有安全的名称/描述）
+  tokens.json             memeory 日聚合的 token 用量（设备 / 月份 / 项目名）
+  apps.json               3 个 App Store 产品及站点
+  chronicle-bundle.json   Mac mini / ThunderSSD 整理 pass1–3 束
+  organize-pass3.json     12 张候选卡、OCR 提纲、印模白/黑/灰名单
 scripts/
   site_data.py    读取并保守 enrichment（演示链接、分类、token 精确匹配）
+  chronicle.py    把整理 JSON 收成可公开的历程视图（去掉本机路径与密钥）
   build.py        生成 dist/
-  test_site.py    校验 JSON、66 条渲染、详情路由、应用 ID、禁止虚构链接
+  test_site.py    校验 JSON、66 条渲染、详情路由、应用 ID、历程页、禁止虚构链接
 site/assets/      CSS / JS / 印章 favicon 与纸纹
 .github/workflows/pages.yml
 ```
@@ -24,6 +27,7 @@ site/assets/      CSS / JS / 印章 favicon 与纸纹
 | 路径 | 说明 |
 | --- | --- |
 | `/wangtianxin-portfolio/` | 首页：编年、能力地图、论文、可演示主线、App Store、token 账本 |
+| `/wangtianxin-portfolio/chronicle/` | 历程整理：精力地图、主线时间线、12 候选卡、OCR 提纲、印模公开边界 |
 | `/wangtianxin-portfolio/archive/` | 可检索、可筛选的完整目录 |
 | `/wangtianxin-portfolio/p/<repo>/` | 每一条仓库的独立详情页 |
 | `/404.html` | 未找到页面 |
@@ -58,7 +62,7 @@ python3 scripts/serve.py
 
 ## 数据与诚实性
 
-- 不编造客户、收入、下载量、期刊录用、DOI 或实验指标。
+- 不编造客户、收入、下载量、期刊录用、DOI 或实验指标。历程整理页不发布本机路径、内网 GitLab、客户印模图或黑名单文件本身。
 - 私有仓库保留 GitHub 链接，并标明「私有仓库，需要权限」；不输出私有 README。
 - Token 账本使用 `data/tokens.json` 原值。ConvertModel 域 = `中转生意` + `convert`；印章域 = `印模` + `yolo`；`memeory` 单独列出。仓库详情只在项目名与仓库名完全一致时挂接用量。
 - Face-payment 的 Bilibili 演示来自该公开仓库 README，不是另造的链接。

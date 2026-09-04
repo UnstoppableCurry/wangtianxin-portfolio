@@ -8,6 +8,7 @@ import os
 import shutil
 from pathlib import Path
 
+from chronicle import first_forbidden
 from htmlutil import asset, e, format_cn_count, format_int, page_url, readme_html
 from site_data import CATEGORY_LABELS, ROOT, build_context
 
@@ -40,6 +41,9 @@ def canonical(path: str = "") -> str:
 
 
 def write(path: Path, content: str) -> None:
+    leak = first_forbidden(content)
+    if leak:
+        raise ValueError(f"refusing to publish forbidden text {leak!r} in {path}")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
 
@@ -48,6 +52,7 @@ def nav_items(current: str) -> list[tuple[str, str, str]]:
     return [
         (href(), "首页", "home"),
         (f"{href()}#journey", "历程", "journey"),
+        (href("chronicle"), "历程整理", "chronicle"),
         (f"{href()}#paper", "论文", "paper"),
         (f"{href()}#work", "作品", "work"),
         (f"{href()}#apps", "应用", "apps"),
@@ -241,6 +246,7 @@ def render_home(ctx: dict) -> str:
         <p class="lede">从河北科技大学的电气工程出发，经过河北尚云与北京翼维科技，于 2023 年 4 月进入北京动码印章科技有限公司。主线是印章/印模计算机视觉、OCR 文档比对与端侧推理；并行展开 AI Agent 基础设施、ConvertModel API 中转，以及上架的 App Store 产品。下面先讲轨迹，再放证据。</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#work">先看演示</a>
+          <a class="btn btn-ghost" href="{e(href('chronicle'))}">历程整理</a>
           <a class="btn btn-ghost" href="{e(href('archive'))}">全部 {counts['all']} 个仓库</a>
           <a class="btn btn-ghost" href="https://github.com/UnstoppableCurry">GitHub</a>
         </div>
@@ -300,6 +306,15 @@ def render_home(ctx: dict) -> str:
             <p>自 2023 年 4 月起。核心工作落在印章/印模视觉、OCR 文档比对、端侧推理，并延伸到 Agent 基础设施与 ConvertModel。</p>
           </article>
         </div>
+        <aside class="chronicle-teaser" id="organize">
+          <p class="kicker">ORGANIZE</p>
+          <h3>历程整理</h3>
+          <p>从 Mac mini 与 ThunderSSD 工作区扫出的精力地图、主线时间线、12 张候选项目卡，以及印模公开边界。不写营收，不公开客户印模图。</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="{e(href('chronicle'))}">打开历程整理</a>
+            <a class="btn btn-ghost" href="{e(href('chronicle'))}#paper-outline">OCR 论文提纲</a>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -581,6 +596,289 @@ def render_detail(item: dict, ctx: dict) -> str:
     return layout(f"{item['name']} · 王天信", body, description=desc, path=f"p/{item['slug']}", current="archive")
 
 
+def _ul(items: list[str]) -> str:
+    return "<ul>" + "".join(f"<li>{e(item)}</li>" for item in items) + "</ul>"
+
+
+def render_chronicle(ctx: dict) -> str:
+    ch = ctx["chronicle"]
+    ocr = ch["ocr"]
+    lists = ch["lists"]
+    max_energy = max((row["count"] for row in ch["energy"]), default=1) or 1
+    energy_rows = "".join(
+        f'<div class="bar-row"><span>{e(row["label"])}</span>'
+        f'<div class="bar" aria-hidden="true"><i style="width:{max(8, int(row["count"]) * 100 / max_energy)}%"></i></div>'
+        f'<span>{row["count"]} 项</span></div>'
+        for row in ch["energy"]
+    )
+    timeline_html = []
+    for stage in ch["timeline"]:
+        chips = "".join(f'<span class="capsule">{e(name)}</span>' for name in stage["projects"])
+        timeline_html.append(
+            f'<article class="chapter">'
+            f'<div class="year-mark" aria-hidden="true">{e(stage["mark"])}</div>'
+            f'<p class="meta">{e(stage["when"])} · {e(stage["fact"])}</p>'
+            f'<h3>{e(stage["title"])}</h3>'
+            f'<div class="capsules">{chips}</div>'
+            f"</article>"
+        )
+    ocr_stages = "".join(
+        f'<article class="ocr-stage">'
+        f'<p class="kicker">{e(stage["name"])}</p>'
+        f'<p class="meta">{e(stage["when"])}</p>'
+        f'<p>{e(stage["point"])}</p>'
+        f"</article>"
+        for stage in ocr["stages"]
+    )
+    chips = "".join(
+        f'<button type="button" class="chip" data-energy-chip value="{e(key)}">{e(key)}</button>'
+        for key in ch["energy_filters"]
+    )
+    cards_html = []
+    for idx, card in enumerate(ch["cards"], start=1):
+        repo_btns = "".join(
+            f'<a class="btn btn-ghost" href="{e(href(f"p/{name}"))}">{e(name)}</a>'
+            for name in card["repos"]
+        )
+        cards_html.append(
+            f'<article class="candidate-card" data-card data-energy="{e(card["energy"])}" '
+            f'data-search="{e(card["search"])}">'
+            f'<p class="kicker">{idx:02d} · {e(card["energy"])}</p>'
+            f'<h3>{e(card["title"])}</h3>'
+            f'<p class="status-line">{e(card["status"])}</p>'
+            f'<p>{e(card["problem"])}</p>'
+            f"<h4>可公开写</h4>{_ul(card['public_ok'])}"
+            f"<h4>必须脱敏 · 禁止公开</h4>{_ul(card['must_redact'])}"
+            f'<p class="honest">建议展示：{e(card["form"])}</p>'
+            + (f'<div class="btn-row">{repo_btns}</div>' if repo_btns else "")
+            + "</article>"
+        )
+    gray_html = "".join(
+        f"<li><strong>{e(row['item'])}</strong> — {e(row['rule'])}</li>"
+        for row in lists["gray"]
+    )
+    covered_html = "".join(
+        f"<li><strong>{e(row['name'])}</strong>"
+        + (
+            f' · <a href="{e(href("p/" + row["repo"]))}">{e(row["repo"])}</a>'
+            if row["repo"]
+            else ""
+        )
+        + f"<br>{e(row['note'])}</li>"
+        for row in ch["covered"]
+    )
+    memory_html = "".join(
+        f"<li><strong>{e(row['name'])}</strong>"
+        + (f' <span class="capsule">{e(row["kind"])}</span>' if row["kind"] else "")
+        + f"<br>{e(row['note'])}</li>"
+        for row in ch["memory"]
+    )
+    data_html = "".join(
+        f"<li><strong>{e(row['name'])}</strong>"
+        + (
+            f' · <a href="{e(href("p/" + row["repo"]))}">{e(row["repo"])}</a>'
+            if row["repo"]
+            else ""
+        )
+        + f"<br>{e(row['note'])}</li>"
+        for row in ch["data"]
+    )
+    extra = (
+        '<script type="application/ld+json">'
+        + json.dumps(
+            {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "name": "历程整理 · 王天信",
+                "inLanguage": "zh-Hans",
+                "description": "Mac mini / ThunderSSD 工作区整理：精力地图、主线时间线、候选项目卡与印模公开边界。",
+                "isPartOf": canonical(),
+            },
+            ensure_ascii=False,
+        )
+        + "</script>"
+    )
+    body = f"""
+    <section class="hero wrap chronicle-hero">
+      <div>
+        <p class="kicker">CHRONICLE</p>
+        <h1>历程整理<span class="en">Mac mini · ThunderSSD · 只写可公开的自己的工作</span></h1>
+        <p class="lede">这是从本机工作区扫出来的整理页，不是新的业绩报表。{e(ch['principle'])}</p>
+        <nav class="inpage-nav" aria-label="本页章节">
+          <a href="#paper-outline">OCR 提纲</a>
+          <a href="#energy">精力地图</a>
+          <a href="#timeline">主线时间线</a>
+          <a href="#cards">12 候选卡</a>
+          <a href="#seal-lists">印模公开名单</a>
+          <a href="#covered">已覆盖可略</a>
+          <a href="#memory">记忆与数据</a>
+        </nav>
+      </div>
+      <aside class="ledger" aria-label="整理批次计数">
+        <h2>整理账本</h2>
+        <dl>
+          <dt>批次</dt><dd>{e(ch['generated_label'])}</dd>
+          <dt>候选项目卡</dt><dd>{ch['counts']['cards']}</dd>
+          <dt>精力桶</dt><dd>{ch['counts']['energy']}</dd>
+          <dt>已覆盖可略</dt><dd>{ch['counts']['covered']}</dd>
+          <dt>记忆项</dt><dd>{ch['counts']['memory']}</dd>
+          <dt>数据项</dt><dd>{ch['counts']['data']}</dd>
+        </dl>
+        <p class="note">以上是分类计数，来自 <code>data/chronicle-bundle.json</code> 与 <code>data/organize-pass3.json</code>。不是客户数、下载量或收入。</p>
+      </aside>
+    </section>
+
+    <section class="section" id="paper-outline">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-en">PAPER OUTLINE</p>
+            <h2 class="section-title">{e(ocr['title'])}</h2>
+          </div>
+          <a class="btn btn-ghost" href="{e(href())}#paper">回首页论文卡</a>
+        </div>
+        <div class="paper-panel chronicle-paper">
+          <img class="seal-stamp" src="{e(file_href('assets/img/seal.svg'))}" alt="朱文印：信">
+          <div>
+            <p class="kicker">置顶可见</p>
+            <h3>《面向OCR文档比对的神经半马尔可夫行对齐》</h3>
+            <p><strong>摘要。</strong>{e(ocr['summary'])}</p>
+            <p><strong>对齐能力。</strong>{e(ocr['capability'])}</p>
+            <p class="honest"><strong>局限（必须同屏保留）。</strong>{e(ocr['limits'])}</p>
+            <div class="btn-row">
+              <a class="btn btn-ghost" href="{e(href('p/ocr-compare'))}">ocr-compare</a>
+              <a class="btn btn-ghost" href="{e(href('p/ContractComparison'))}">ContractComparison</a>
+              <a class="btn btn-ghost" href="{e(href('p/word-print-layout-pipeline'))}">word-print-layout-pipeline</a>
+            </div>
+          </div>
+        </div>
+        <div class="ocr-stages">{ocr_stages}</div>
+        <details class="honest ablation-note">
+          <summary>消融数字不上站</summary>
+          <p>{e(ocr['ablation_policy'])}</p>
+          <p>{e(ocr['ablation_note'])} 本页不摘录点估计，也不把本地实验路径写成可点击下载。</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="energy">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-en">ENERGY MAP</p>
+            <h2 class="section-title">精力地图</h2>
+          </div>
+          <p>扫描分类共 {ch['energy_total']} 项。柱长表示条目数，不表示钱、客户或效果。</p>
+        </div>
+        <div class="panel energy-panel">{energy_rows}</div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-en">MAINLINE</p>
+            <h2 class="section-title">主线时间线</h2>
+          </div>
+          <p>来自整理 pass2 的职业主线草稿。标了「推断」的时间窗不是精确入职表。</p>
+        </div>
+        <div class="timeline">{''.join(timeline_html)}</div>
+      </div>
+    </section>
+
+    <section class="section" id="cards">
+      <div class="wrap" data-chronicle-cards>
+        <div class="section-head">
+          <div>
+            <p class="section-en">CANDIDATE CARDS</p>
+            <h2 class="section-title">{ch['card_count']} 张候选项目卡</h2>
+          </div>
+          <p class="count-live" data-card-count aria-live="polite">当前显示 {ch['card_count']} / {ch['card_count']} 张</p>
+        </div>
+        <p>每张卡只写可公开叙述与必须脱敏的边界。本地目录、内网地址和客户图一律不出现。</p>
+        <div class="filters">
+          <label>检索
+            <input type="search" data-card-search placeholder="按标题、精力桶或问题检索" autocomplete="off">
+          </label>
+          <div class="filter-row" role="group" aria-label="按精力桶筛选">
+            <button type="button" class="chip" data-energy-chip value="all" aria-pressed="true">全部</button>
+            {chips}
+          </div>
+        </div>
+        <div class="candidate-grid">{''.join(cards_html)}</div>
+        <p class="empty-state" data-card-empty hidden>没有符合当前筛选的候选卡。</p>
+      </div>
+    </section>
+
+    <section class="section" id="seal-lists">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-en">SEAL BOUNDARY</p>
+            <h2 class="section-title">印模公开白 / 黑 / 灰名单</h2>
+          </div>
+          <p>黑名单是「禁止公开」教育，不是把禁发文件列成下载清单。</p>
+        </div>
+        <div class="list-grid">
+          <article class="list-panel list-white">
+            <h3>白名单 · 可以公开</h3>
+            {_ul(lists['whitelist'])}
+          </article>
+          <article class="list-panel list-black">
+            <h3>黑名单 · 禁止公开</h3>
+            {_ul(lists['blacklist'])}
+          </article>
+          <article class="list-panel list-gray">
+            <h3>灰名单 · 须人工脱敏</h3>
+            <ul>{gray_html}</ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-secondary" id="covered">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-en">ALREADY COVERED</p>
+            <h2 class="section-title">已覆盖可略</h2>
+          </div>
+          <p>本站目录已经收过的条目，整理时不再另开一张产品卡。</p>
+        </div>
+        <ul class="quiet-list">{covered_html}</ul>
+      </div>
+    </section>
+
+    <section class="section is-secondary" id="memory">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-en">MEMORY / DATA</p>
+            <h2 class="section-title">记忆与数据</h2>
+          </div>
+          <p>次要。只说明边界：凭证、日记、客户样本和简历落盘都不进作品集。</p>
+        </div>
+        <div class="list-grid two">
+          <article class="list-panel">
+            <h3>记忆</h3>
+            <ul class="quiet-list">{memory_html}</ul>
+          </article>
+          <article class="list-panel">
+            <h3>数据</h3>
+            <ul class="quiet-list">{data_html}</ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    """
+    desc = (
+        "王天信作品集的历程整理：精力地图、主线时间线、12 张候选项目卡、"
+        "OCR 论文提纲与印模公开边界。不编造指标，不公开客户印模图。"
+    )
+    return layout("历程整理 · 王天信", body, description=desc, path="chronicle", current="chronicle", extra_head=extra)
+
+
 def render_404() -> str:
     body = f"""
     <section class="page-404">
@@ -590,6 +888,7 @@ def render_404() -> str:
         <p>这份编年里没有该路径。回到首页或完整目录继续。</p>
         <div class="btn-row" style="justify-content:center">
           <a class="btn btn-primary" href="{e(href())}">回首页</a>
+          <a class="btn btn-ghost" href="{e(href('chronicle'))}">历程整理</a>
           <a class="btn btn-ghost" href="{e(href('archive'))}">完整目录</a>
         </div>
       </div>
@@ -599,7 +898,7 @@ def render_404() -> str:
 
 
 def write_seo(ctx: dict) -> None:
-    paths = ["", "archive"] + [f"p/{item['slug']}" for item in ctx["items"]]
+    paths = ["", "archive", "chronicle"] + [f"p/{item['slug']}" for item in ctx["items"]]
     urls = "\n".join(
         f"  <url><loc>{e(canonical(path))}</loc></url>"
         for path in paths
@@ -624,6 +923,7 @@ def main() -> None:
     write(DIST / ".nojekyll", "")
     write(DIST / "index.html", render_home(ctx))
     write(DIST / "archive" / "index.html", render_archive(ctx))
+    write(DIST / "chronicle" / "index.html", render_chronicle(ctx))
     write(DIST / "404.html", render_404())
     for item in ctx["items"]:
         write(DIST / "p" / item["slug"] / "index.html", render_detail(item, ctx))

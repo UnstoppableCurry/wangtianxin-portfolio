@@ -9,6 +9,7 @@ import re
 import sys
 from pathlib import Path
 
+from chronicle import first_forbidden, sanitize_text
 from htmlutil import asset, page_url
 from site_data import ROOT, build_context, extract_bilibili_demo
 
@@ -120,7 +121,12 @@ def test_pages(ctx: dict) -> None:
 
 
 def test_apps_and_urls(ctx: dict) -> None:
-    pages = [DIST / "index.html", DIST / "archive" / "index.html"]
+    pages = [
+        DIST / "index.html",
+        DIST / "archive" / "index.html",
+        DIST / "chronicle" / "index.html",
+        DIST / "404.html",
+    ]
     pages.extend(DIST / "p" / item["slug"] / "index.html" for item in ctx["items"])
     blob = "\n".join(read(path) for path in pages)
     hrefs = re.findall(r'href="([^"]+)"', blob)
@@ -171,6 +177,8 @@ def test_url_helpers() -> None:
         fail("archive page_url must keep the project base")
     if page_url(base, "p/onnx2anything") != "/wangtianxin-portfolio/p/onnx2anything/":
         fail("detail page_url must keep the project base")
+    if page_url(base, "chronicle") != "/wangtianxin-portfolio/chronicle/":
+        fail("chronicle page_url must keep the project base")
 
 
 def test_github_pages_asset_urls() -> None:
@@ -208,6 +216,104 @@ def test_github_pages_asset_urls() -> None:
         )
 
 
+def test_chronicle_pages(ctx: dict) -> None:
+    ch = ctx.get("chronicle")
+    if not ch:
+        fail("build_context should include chronicle")
+    if ch["card_count"] != 12:
+        fail(f"chronicle should have 12 candidate cards, got {ch['card_count']}")
+    if len(ch["energy"]) < 6:
+        fail("energy map missing buckets")
+    if len(ch["timeline"]) != 6:
+        fail(f"pass2 timeline should have 6 stages, got {len(ch['timeline'])}")
+
+    page = read(DIST / "chronicle" / "index.html")
+    home = read(DIST / "index.html")
+    sitemap = read(DIST / "sitemap.xml")
+    if "历程整理" not in home:
+        fail("homepage should link to 历程整理")
+    if f"{PAGES_BASE}/chronicle/" not in home:
+        fail("homepage should use project-base chronicle URL")
+    if "chronicle" not in sitemap:
+        fail("sitemap missing chronicle")
+    if "精力地图" not in page or "主线时间线" not in page:
+        fail("chronicle page missing energy map or timeline")
+    card_hooks = page.count('data-card data-energy=')
+    if card_hooks != 12:
+        fail(f"chronicle should render 12 cards, got {card_hooks}")
+    for card in ch["cards"]:
+        if card["title"] not in page:
+            fail(f"missing candidate card {card['title']}")
+        if "data-energy=" not in page:
+            fail("candidate cards need energy filter hooks")
+    if "禁止公开" not in page:
+        fail("blacklist must be framed as 禁止公开 education")
+    if "局限（必须同屏保留）" not in page:
+        fail("OCR limits must stay visible on the chronicle page")
+    if "神经半马尔可夫" not in page:
+        fail("OCR outline missing semi-Markov wording")
+    if "已覆盖可略" not in page or "记忆与数据" not in page:
+        fail("secondary covered/memory sections missing")
+    leak = first_forbidden(page)
+    if leak:
+        fail(f"chronicle HTML leaked forbidden text: {leak}")
+    if "192.168" in page:
+        fail("do not publish internal IPs")
+    if "营收" in page and ("¥" in page or "$" in page or "万收入" in page):
+        fail("do not invent revenue figures")
+    # Token ledger numbers belong on the homepage, not as new chronicle metrics.
+    if "5587373996" in page or ("5.59" in page and "亿 token" in page):
+        fail("do not restate token billions as new energy metrics")
+
+    raw_bundle = (ROOT / "data" / "chronicle-bundle.json").read_text(encoding="utf-8")
+    raw_pass3 = (ROOT / "data" / "organize-pass3.json").read_text(encoding="utf-8")
+    if "/Users/money" not in raw_bundle or "/Users/money" not in raw_pass3:
+        fail("source JSON should still contain local paths to prove redaction is doing work")
+    if "/Users/money" in page or "/Volumes/ThunderSSD" in page:
+        fail("local Mac/ThunderSSD paths must be stripped from HTML")
+    if "c0c8477c-ec42-4657-b9c5-746c5f64efba" in page:
+        fail("machine id must not be published")
+    if "secrets.git" in page or "git-crypt" in page.lower():
+        fail("secrets repo / git-crypt must not be published")
+    if "niuma.local" in page:
+        fail("machine hostname must not be published")
+    if 'href="/wangtianxin-portfolio/p/secrets/"' in page:
+        fail("do not link the secrets catalog entry from chronicle")
+    for token in (
+        "jni_inputs",
+        "getseal_测试图",
+        "annotation_output",
+        "login-attempt.log",
+        "交接-claude",
+        "0.87B",
+        "4.8B",
+    ):
+        if token in page:
+            fail(f"chronicle must not dump inventory/metric token {token!r}")
+    if (DIST / "data" / "chronicle-bundle.json").exists() or (DIST / "data" / "organize-pass3.json").exists():
+        fail("do not copy raw organize JSON into dist/")
+    for html_path in DIST.rglob("*.html"):
+        leak = first_forbidden(read(html_path))
+        if leak:
+            fail(f"{html_path.relative_to(DIST)} leaked forbidden text: {leak}")
+
+
+def test_chronicle_sanitize() -> None:
+    cleaned = sanitize_text("见 /Users/money/ocr-compare 与 192.168.1.8 上的 https://gitlab.internal/getSeal")
+    if "/Users/" in cleaned or "192.168" in cleaned or "gitlab.internal" in cleaned:
+        fail(f"sanitize_text left a leak: {cleaned}")
+    if first_forbidden("hello /Volumes/ThunderSSD/印模") != "/Volumes/":
+        fail("first_forbidden should catch volume paths")
+    if first_forbidden("https://gitlab.com/UnstoppableCurry/foo") is not None:
+        fail("public gitlab.com URLs must not trip the publish gate")
+    if first_forbidden("version 10.1.2.3") is not None:
+        fail("dotted versions must not trip the publish gate")
+    if "研究实验目录" not in sanitize_text("见 ~/rl/paper_v3"):
+        fail("~/rl should be rewritten, not dumped")
+    if "secrets.git" in sanitize_text("clone secrets.git"):
+        fail("secrets.git must be rewritten")
+
+
 def test_no_private_readme_leak(ctx: dict) -> None:
     for item in ctx["items"]:
         if not item["private"]:
@@ -222,9 +328,11 @@ def main() -> None:
         fail("dist/ missing; run python3 scripts/build.py first")
     ctx = test_json_loads()
     test_url_helpers()
+    test_chronicle_sanitize()
     test_pages(ctx)
     test_apps_and_urls(ctx)
     test_tokens_exact(ctx)
+    test_chronicle_pages(ctx)
     test_no_private_readme_leak(ctx)
     test_github_pages_asset_urls()
     print(
@@ -233,6 +341,7 @@ def main() -> None:
         f"{ctx['counts']['public']} public / {ctx['counts']['private']} private, "
         f"{ctx['counts']['demo']} with demo, "
         f"{ctx['counts']['apps']} App Store products, "
+        f"{ctx['chronicle']['card_count']} chronicle cards, "
         "all detail routes present."
     )
 
