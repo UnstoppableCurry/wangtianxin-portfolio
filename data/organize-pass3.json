@@ -1,0 +1,501 @@
+{
+  "generatedAt": "2026-09-04 18:25 CST",
+  "pass": 3,
+  "machine": {
+    "id": "c0c8477c-ec42-4657-b9c5-746c5f64efba",
+    "label": "niuma.local",
+    "note": "read-only peeks for README/folder names only; no customer seal images opened; portfolio site untouched; drafts on box only"
+  },
+  "extends": [
+    "/workspace/niuma-portfolio-organize.md",
+    "/workspace/niuma-portfolio-organize.json",
+    "/workspace/niuma-portfolio-organize-pass2.md",
+    "/workspace/niuma-portfolio-organize-pass2.json",
+    "/workspace/portfolio-full-catalog.json"
+  ],
+  "principle": "暂不动作品集站；草稿仅 box；不编造客户/营收；消融数字不编造，只给本地路径",
+  "candidateCards": [
+    {
+      "id": "relay-price-mirror",
+      "标题": "价镜 AI（中转站比价网站）",
+      "精力桶": "ConvertModel中转生意",
+      "解决的问题": "把分散的中转站/聚合站可用性、来源证据与价格缺口收成可筛选目录，方便对照「有没有货、证据从哪来」，而不是只堆模型列表。",
+      "证据来源": {
+        "macPaths": [
+          "/Volumes/ThunderSSD/中转站比价网站"
+        ],
+        "githubName": null,
+        "readmeHint": "本地 README 自称「价镜 AI」Next.js MVP"
+      },
+      "可公开写什么": [
+        "产品名「价镜 AI」",
+        "比价/可用性/来源证据/价格缺口的产品定位",
+        "技术栈（Next.js）与能力列表（搜索、标签、probe 快照）",
+        "勿写营收、客户名单、未核实标价"
+      ],
+      "必须脱敏什么": [
+        "内置 registry 里可追溯到未授权抓取的站点细节若敏感则删",
+        "probe 日志中的密钥/Cookie",
+        "reference-crawl 原始镜像若含第三方版权页则勿整页公开"
+      ],
+      "建议展示形态": "独立卡（中转生意产品环）或与 onnx2anything / convertmodel-docs 并列旁注",
+      "状态": "本地only",
+      "sourcePass": 1,
+      "priority": 1
+    },
+    {
+      "id": "yinmo-workspace",
+      "标题": "印模工作区（印章主业现场）",
+      "精力桶": "印章主业",
+      "解决的问题": "承接 ClearSeal / getSeal / DocCrop 的日常交付、版本对照与 JNI/UOS 打包现场，把算法改动落到可交接的交付物。",
+      "证据来源": {
+        "macPaths": [
+          "/Volumes/ThunderSSD/Mac桌面归档/印模"
+        ],
+        "githubName": null,
+        "docNames": [
+          "版本对照表.md",
+          "RELEASE_NOTES_2.2.8.md",
+          "getSeal_JNI接口交接.md",
+          "工作交接_DocCropSDK.md"
+        ]
+      },
+      "可公开写什么": [
+        "产品线分工叙述（getSeal 检测裁剪 / ClearSeal 去背景抠图 / SealForge 提取归一化）",
+        "版本线数字（如 ClearSeal 2.2.x、getSeal 正式主线）经脱敏后",
+        "UOS/Linux .so 交付形态（不含客户图）",
+        "公开仓名：ClearSeal、getSeal、seal-impression-tool、DocCropSDK-hastext"
+      ],
+      "必须脱敏什么": [
+        "客户印模图与任意业务真章图",
+        "jni_inputs / getseal_测试图 / dpi_test_seals / probe_in*",
+        "内网 GitLab URL 明文",
+        "交接包中的客户/对接人信息",
+        "权重与客户微调样本"
+      ],
+      "建议展示形态": "历程旁注（支撑技术卡，不单独当产品卡）",
+      "状态": "本地only",
+      "sourcePass": 1,
+      "priority": 2
+    },
+    {
+      "id": "p2201",
+      "标题": "P2201 印章打印机工具",
+      "精力桶": "印章主业",
+      "解决的问题": "把印章算法链路接到具体打印机/喷头工具侧，补「算法 → 设备」闭环，便于联调与交接演示。",
+      "证据来源": {
+        "macPaths": [
+          "/Users/money/Desktop/P2201/P2201"
+        ],
+        "githubName": null,
+        "folderHints": [
+          "P2201.sln",
+          "PrinterUtility_1.0.0.8",
+          "交接-claude"
+        ]
+      },
+      "可公开写什么": [
+        "设备侧工具存在性与「算法→打印机」故事线",
+        "技术形态（Windows/.NET 方案级描述）",
+        "不含客户图的联调界面说明"
+      ],
+      "必须脱敏什么": [
+        "交接目录中的客户/对接人姓名与口令类文件",
+        "inputs 下的真章/业务图",
+        "内网或客户现场配置"
+      ],
+      "建议展示形态": "旁注（挂在印章主业故事线下）",
+      "状态": "本地only",
+      "sourcePass": 1,
+      "priority": 3
+    },
+    {
+      "id": "getseal",
+      "标题": "getSeal（印章检测与裁剪交付）",
+      "精力桶": "印章主业",
+      "解决的问题": "从扫描/成像中检测印章区域并裁剪输出标准印模图，通过 JNI/.so 形态交付给上层 Java 服务。",
+      "证据来源": {
+        "macPaths": [
+          "/Volumes/ThunderSSD/Mac桌面归档/印模/getseal_600_work/orig_repo"
+        ],
+        "githubName": "getSeal",
+        "relatedGithub": [
+          "getSealCunZhang",
+          "impression-handover"
+        ]
+      },
+      "可公开写什么": [
+        "能力一句话：检测+裁剪→标准尺寸印模",
+        "交付形态：JNI / .so / Linux·UOS",
+        "与 ClearSeal、seal-impression-tool 的分工",
+        "仓名 getSeal（目录已有，私有）"
+      ],
+      "必须脱敏什么": [
+        "内网 GitLab 地址",
+        "test-data 真章图",
+        "客户项目代号以外的商务信息",
+        "未开源的权重文件"
+      ],
+      "建议展示形态": "独立卡（印章技术卡之一）或与 ClearSeal 合并叙事下的子卡",
+      "状态": "已有GH需加强",
+      "sourcePass": 1,
+      "priority": 4
+    },
+    {
+      "id": "ocr-compare",
+      "标题": "OCR-Compare · 神经半马尔可夫行对齐",
+      "精力桶": "OCR论文",
+      "解决的问题": "两路带噪 OCR 行序列需要对齐成可审阅的增删改编辑脚本；固定 LCS/拍平规则在切分行错误时会把后续全盘报错，需要可学习的保序 n:m 对齐。",
+      "证据来源": {
+        "macPaths": [
+          "/Users/money/ocr-compare",
+          "/Users/money/rl",
+          "/Volumes/ThunderSSD/文本比对ocr"
+        ],
+        "githubName": "ocr-compare",
+        "paperPaths": [
+          "/Users/money/rl/paper_v3/zh/paper.md",
+          "/Users/money/rl/paper_v3/zh/paper.pdf",
+          "/Users/money/ocr-compare/README.md"
+        ]
+      },
+      "可公开写什么": [
+        "论文题与摘要级叙述（半马尔可夫、增删改、SCST 两阶段）",
+        "能力：行级 1:n / n:1 / n:m、乱序与跨页为 v4 开发中",
+        "局限：单页+教师强制顺序下的主结论；不声称阅读顺序无关/跨页检索/字符级操作点",
+        "生产服务形态（本地 Web 比对）可描述，勿绑客户数据"
+      ],
+      "必须脱敏什么": [
+        "训练权重 *.pt 与真实业务扫描件",
+        "内网训练机地址",
+        "若有投稿约束则遵守未发表细节",
+        "无关业务落盘"
+      ],
+      "建议展示形态": "置顶论文卡",
+      "状态": "已有GH需加强",
+      "sourcePass": 1,
+      "priority": 5
+    },
+    {
+      "id": "clearseal",
+      "标题": "ClearSeal（印章去背景 / 抠图）",
+      "精力桶": "印章主业",
+      "解决的问题": "在检测裁剪之后，对印章前景做去背景/抠图与环宽等约束，输出可供后续印模链路使用的干净前景。",
+      "证据来源": {
+        "macPaths": [
+          "/Volumes/ThunderSSD/clearseal-local/ClearSeal"
+        ],
+        "githubName": "ClearSeal",
+        "versionHints": [
+          "README: ClearSeal v2.2.8",
+          "印模/RELEASE_NOTES_2.2.8.md",
+          "版本对照表中的主线版本"
+        ]
+      },
+      "可公开写什么": [
+        "产品名与版本线（经核对后的公开数字）",
+        "Linux/UOS .so 交付",
+        "与 getSeal 的上下游关系",
+        "算法模块名（去背景、环宽约束等）脱敏架构"
+      ],
+      "必须脱敏什么": [
+        "README/交接里的内网 GitLab URL",
+        "test-data / 真章图",
+        "客户现场截图"
+      ],
+      "建议展示形态": "独立卡（印章主叙事核心）",
+      "状态": "已有GH需加强",
+      "sourcePass": 1,
+      "priority": 6
+    },
+    {
+      "id": "doccrop-uos",
+      "标题": "DocCropSDK（统信 UOS / 文档裁剪与有字判定）",
+      "精力桶": "印章主业",
+      "解决的问题": "文档/票面在设备侧需要裁剪，并对「没纸 / 有纸没字 / 有纸有字」做稳健三态判定，适配 Windows 与统信 UOS 等交付环境。",
+      "证据来源": {
+        "macPaths": [
+          "/Users/money/Desktop/统信os/doccrop_src"
+        ],
+        "githubName": "DocCropSDK-hastext",
+        "docNames": [
+          "交付说明_修复版.md"
+        ]
+      },
+      "可公开写什么": [
+        "国产 OS（UOS）适配与跨平台 .so 故事",
+        "三态 API 概念（没纸/有纸没字/有纸有字）",
+        "与印章/文档产线的关系"
+      ],
+      "必须脱敏什么": [
+        "交付说明中的客户票面样例图",
+        "准确率数字上站前须人工复核来源",
+        "内网路径与对接人"
+      ],
+      "建议展示形态": "旁注或独立小卡（印章/文档交付线）",
+      "状态": "已有GH需加强",
+      "sourcePass": 1,
+      "priority": 7
+    },
+    {
+      "id": "memeory",
+      "标题": "memeory（桌面伴侣 + MeMeory iOS）",
+      "精力桶": "memeory",
+      "解决的问题": "把多 Agent CLI 的本地会话聚合成可回顾的结构化日记/仪表盘；并在 iOS 上跑端侧 agent（工具调用 + 本地隐私），与 memeory-data 采集仓严格分开。",
+      "证据来源": {
+        "macPaths": [
+          "/Users/money/Desktop/memeory"
+        ],
+        "githubName": "memeory",
+        "excludeDataRepo": "memeory-data"
+      },
+      "可公开写什么": [
+        "双产品定位（macOS 聚合仪表盘 + iOS 端侧 agent）",
+        "本地隐私 / Keychain / 不上传健康数据等产品原则",
+        "与 wtcc 的技术关系（公开叙述级）"
+      ],
+      "必须脱敏什么": [
+        "个人日记与 core-data 内容",
+        "API Key、同步用 private git 凭证",
+        "memeory-data 设备事件原文",
+        "健康明细"
+      ],
+      "建议展示形态": "独立卡（个人产品）",
+      "状态": "已有GH需加强",
+      "sourcePass": 1,
+      "priority": 8
+    },
+    {
+      "id": "livis-cli-adapter",
+      "标题": "livis-cli-adapter（理想眼镜 → Grok/Claude）",
+      "精力桶": "自动化Agent工具",
+      "解决的问题": "在不安装 OpenClaw 的前提下，按同一网关协议把理想眼镜/同学 App 接到本地 grok/claude CLI。",
+      "证据来源": {
+        "macPaths": [
+          "/Users/money/Desktop/livis-cli-adapter"
+        ],
+        "githubName": null,
+        "stack": "Node / WebSocket gateway"
+      },
+      "可公开写什么": [
+        "架构一句话：眼镜 App → livis gateway → adapter → CLI",
+        "「无 OpenClaw」的差异点",
+        "开源小仓潜力"
+      ],
+      "必须脱敏什么": [
+        "login-attempt.log / serve.log 中的 token 与 Agent ID",
+        "个人 IDaaS 登录痕迹"
+      ],
+      "建议展示形态": "独立小卡或 Agent 工具组旁注",
+      "状态": "本地only",
+      "sourcePass": 2,
+      "priority": 9
+    },
+    {
+      "id": "relay-knowledge-product",
+      "标题": "中转站知识付费（从 0 到 1 手册）",
+      "精力桶": "ConvertModel中转生意",
+      "解决的问题": "把中转站搭建/排错/运营写成可交付的图文教程与 FAQ/SOP，降低从 0 到 1 的操作成本（叙述级，不写营收）。",
+      "证据来源": {
+        "macPaths": [
+          "/Users/money/Desktop/中转站知识付费"
+        ],
+        "githubName": null,
+        "relatedPublicGithub": [
+          "convertmodel-docs",
+          "convertmodel-claude-code-codex-relay",
+          "ai-api-relay"
+        ],
+        "fileHints": [
+          "中转站从0到1搭建手把手图文教程.md",
+          "FAQ与报错字典.md",
+          "卖家运营SOP.md",
+          "购买者执行手册.md"
+        ]
+      },
+      "可公开写什么": [
+        "教程/手册产品形态",
+        "与公开 convertmodel-docs / relay 指南的互补关系",
+        "排错字典类脱敏摘录"
+      ],
+      "必须脱敏什么": [
+        "买家信息、订单与价格",
+        "未脱敏的服务器 IP/面板账号",
+        "第三方品牌侵权风险截图"
+      ],
+      "建议展示形态": "旁注（挂在中转生意产品卡，与比价站同环）",
+      "状态": "本地only",
+      "sourcePass": 2,
+      "priority": 10
+    },
+    {
+      "id": "liepin-assistant-v2",
+      "标题": "liepin_assistant_v2（猎聘招聘 Agent v2）",
+      "精力桶": "自动化Agent工具",
+      "解决的问题": "在猎聘 HR 场景用浏览器自动化 + LLM 管线辅助招聘流程；相对 GitLab 上的 v1，本地 v2 为 PyQt + browser-use 后继实现。",
+      "证据来源": {
+        "macPaths": [
+          "/Users/money/liepin_assistant_v2"
+        ],
+        "githubName": null,
+        "relatedGithub": [
+          "liepin-assistant"
+        ],
+        "stack": "Python / PyQt / Playwright / browser-use"
+      },
+      "可公开写什么": [
+        "招聘 Agent 线的技术选型对比（相对 boss-mini 视觉闭环）",
+        "桌面 UI + browser-use 架构级描述"
+      ],
+      "必须脱敏什么": [
+        "data/ 下简历与候选人信息",
+        "账号 Cookie、公司 GitLab 内网地址",
+        "业务话术中的客户公司名"
+      ],
+      "建议展示形态": "并入「招聘自动化」组合卡，不单独置顶",
+      "状态": "本地only",
+      "sourcePass": 2,
+      "priority": 11
+    },
+    {
+      "id": "hiring-automation-combined",
+      "标题": "招聘自动化（boss-mini + liepin v1/v2）",
+      "精力桶": "自动化Agent工具",
+      "解决的问题": "招聘者端重复操作（收件、筛选、沟通、下载解析）需要自动化；Boss 侧用纯视觉闭环规避 CDP 风控，猎聘侧用浏览器自动化助手形成对照实现。",
+      "证据来源": {
+        "macPaths": [
+          "/Users/money/Desktop/boss-mini-win-pack/boss-mini",
+          "/Users/money/Desktop/招聘/boss-mini",
+          "/Users/money/liepin_assistant",
+          "/Users/money/liepin_assistant_v2"
+        ],
+        "githubName": [
+          "boss-mini",
+          "liepin-assistant"
+        ],
+        "outline": {
+          "boss-mini": "截图→视觉模型给坐标→真鼠标；零 CDP；v1/v2 版本线",
+          "liepin-v1": "GH 私有 liepin-assistant；公司 GitLab 为主远程",
+          "liepin-v2": "本地非 git；PyQt + browser-use"
+        }
+      },
+      "可公开写什么": [
+        "双平台对照叙事（视觉闭环 vs 浏览器自动化）",
+        "boss-mini 公开描述级能力（目录已有 description）",
+        "步骤闭环概念（login/job/scan/inbox…）不写真实候选人"
+      ],
+      "必须脱敏什么": [
+        "简历落盘与评分结果",
+        "招聘账号与会话",
+        "内网 GitLab URL",
+        "客户公司与职位原文"
+      ],
+      "建议展示形态": "独立组合卡（Agent 工具组）",
+      "状态": "已有GH需加强",
+      "sourcePass": "1+2-combined",
+      "priority": 12
+    }
+  ],
+  "candidateCardCount": 12,
+  "ocrTimelineOutline": {
+    "title": "OCR 历程提纲（神经半马尔可夫行对齐）",
+    "stages": [
+      {
+        "阶段": "原型",
+        "时间窗": "约 2026-06（事实：路径与 README 进度表）",
+        "要点": "「文本比对ocr」：标准文档 vs 拍照件，学习式单调序列对齐，替换拍平 LCS；Phase A 纯合成原型。",
+        "证据路径": [
+          "/Volumes/ThunderSSD/文本比对ocr",
+          "/Volumes/ThunderSSD/文本比对ocr/README.md",
+          "/Volumes/ThunderSSD/文本比对ocr/docs"
+        ]
+      },
+      {
+        "阶段": "论文 / 消融",
+        "时间窗": "约 2026-07～08（事实：ocr-compare、~/rl/paper_v3、handoff）",
+        "要点": "ocr-compare 研究管线 + ~/rl 实验/交接；论文稿《面向 OCR 文档比对的神经半马尔可夫行对齐》；v3 同预算消融；v4 乱序/跨页开发中。",
+        "证据路径": [
+          "/Users/money/ocr-compare",
+          "/Users/money/ocr-compare/README.md",
+          "/Users/money/ocr-compare/papers/v4",
+          "/Users/money/rl",
+          "/Users/money/rl/paper_v3/zh/paper.md",
+          "/Users/money/rl/paper_v3/zh/paper.pdf",
+          "/Users/money/rl/paper_v3/en/paper.md",
+          "/Users/money/rl/paper_v3/extracted.md",
+          "/Users/money/rl/paper_v3/raw",
+          "/Users/money/rl/run_ablation_v3.sh",
+          "/Users/money/rl/paper_v3/figures"
+        ]
+      },
+      {
+        "阶段": "服务",
+        "时间窗": "与论文并行～2026-08（事实：仓内 ocr_diff_service）",
+        "要点": "Flask Web：PP-OCRv6 → 神经对齐 → 逐字符差异高亮；私有仓可继续强化公开叙述。",
+        "证据路径": [
+          "/Users/money/ocr-compare/ocr_diff_service",
+          "/Users/money/ocr-compare/frontend",
+          "GitHub: ocr-compare（private）"
+        ]
+      }
+    ],
+    "消融表": {
+      "本地是否有文件": true,
+      "路径": [
+        "/Users/money/ocr-compare/README.md（章节：v3 消融结果）",
+        "/Users/money/rl/paper_v3/extracted.md",
+        "/Users/money/rl/paper_v3/raw/",
+        "/Users/money/rl/paper_v3/zh/paper.md",
+        "/Users/money/rl/paper_v3/figures/（fig1–fig5 等）"
+      ],
+      "作品集数字写入策略": "勿在本 Pass 编造或擅自改写点估计；上站前人工从上述路径核后摘入。论文摘要已写明采样器混杂等局限，公开卡必须同屏保留局限句。",
+      "备注": "README 称完整 5 组消融对照；extracted.md 为从训练机拷回的磁盘读数源。"
+    },
+    "作品集应置顶的公开叙述要点": {
+      "摘要": "两路带噪 OCR 行 → 保序 n:m 半马尔可夫对齐 → 只报告增/删/改（含短合并拆分）；监督路径似然 + SCST 两阶段。",
+      "对齐能力": "行级匹配支持 1:n / n:1 / n:m；双侧 dustbin 吸收无对应行；与训练一致的二维 DP 解码；生产侧可叠加逐字符高亮。",
+      "局限": "主结论在单页、教师强制金标准阅读顺序、主指标 strict_exact_operation_path 下成立；不声称阅读顺序无关、跨页检索或字符级操作点；v4 乱序/跨页为开发中；续训对照存在采样器混杂，不能写成「只改损失」。"
+    }
+  },
+  "sealPublicLists": {
+    "whitelist": [
+      "产品名：ClearSeal、getSeal、getSealCunZhang、seal-impression-tool、DocCropSDK、SealForge（叙述级）",
+      "版本线：经核对的公开版本号（如 ClearSeal 2.2.x 发布说明中的版本，上站前再核）",
+      "算法模块名：检测裁剪、去背景/抠图、环宽约束、印模提取、有纸/有字三态等",
+      "脱敏架构描述：YOLO 检测 → 裁剪 → ClearSeal 清理 → 设备/打印机侧（不含客户图）",
+      "公开 GitHub 仓：seal-impression-tool、ncnn-android-yolov8-seg-Seal、NcnnYolov8Seg4Seal、OpenVinoYolov8Seg4Seal、Yolov8-Seg-HD 等已公开者",
+      "UOS/打印机设备侧说明：仅文字+无客户图的界面/架构示意",
+      "私有仓可点名但不展开内网：ClearSeal、getSeal、DocCropSDK-hastext、impression-handover、yolo"
+    ],
+    "blacklist": [
+      "客户印模图、真章扫描、任意业务样张（含印模目录下业务/测试真章图）",
+      "jni_inputs、jni_inputs_excluded、getseal_测试图、dpi_test_seals、probe_in*、probe_out*、bmp数据、合成印章_多dpi 中的客户或未授权样本",
+      "简历落盘与招聘 data/ 候选人文件",
+      "内网 GitLab URL 明文（如 README/版本对照表中的 192.168.x 地址）",
+      "secrets / git-crypt 解密内容、API Key、Cookie、login 日志",
+      "含客户微调的权重与原始数据集（yolo alldata、annotation_output* 等）",
+      "交接包里的客户信息、对接人口令、未脱敏 HANDOFF"
+    ],
+    "grayZone": [
+      {
+        "item": "delivery_*/delivery md、工作交接_*.md、HANDOVER.md、ultraplan/会话续写 txt",
+        "rule": "需人工脱敏（去客户名、内网 URL、样图、口令）后才能作历程旁注"
+      },
+      {
+        "item": "RELEASE_NOTES / 版本对照表",
+        "rule": "可抽版本数字与分工叙述；必须去掉 GitLab 内网链接与客户环境路径"
+      },
+      {
+        "item": "P2201/交接-claude",
+        "rule": "可保留「设备联调存在」；删除对接人姓名与口令类文件引用"
+      }
+    ]
+  },
+  "counts": {
+    "pass1Top8Cards": 8,
+    "pass2NewCards": 3,
+    "combinedHiringCard": 1,
+    "totalCandidateCards": 12
+  },
+  "markdownReport": "/workspace/niuma-portfolio-organize-pass3.md"
+}
