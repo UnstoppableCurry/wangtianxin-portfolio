@@ -1,0 +1,1368 @@
+{
+  "generatedAt": "2026-09-04T18:24:00+08:00",
+  "principle": "own work only; no fabricated metrics/customers/revenue; secrets and customer seal images excluded",
+  "pass1": {
+    "summary": {
+      "ownProjectsScanned": 43,
+      "catalogRepos": 67,
+      "alreadyCovered": 15,
+      "shouldSupplement": 12,
+      "memoryItems": 4,
+      "dataItems": 3,
+      "noiseOrArchive": 7,
+      "excludedForks": 23,
+      "top8SupplementByEnergy": [
+        "中转站比价网站",
+        "印模（ClearSeal 工作区）",
+        "P2201 印章打印机工具",
+        "getSeal（GitLab orig_repo）",
+        "ocr-compare（论文+服务）",
+        "ClearSeal（本地 gitlab-main）",
+        "DocCropSDK（统信 UOS）",
+        "memeory（个人产品）"
+      ]
+    },
+    "energyBuckets": {
+      "记忆与数据": 2,
+      "其他": 4,
+      "ConvertModel中转生意": 6,
+      "上架产品化": 6,
+      "自动化Agent工具": 7,
+      "memeory": 1,
+      "OCR论文": 2,
+      "印章主业": 8,
+      "探索游戏": 7
+    },
+    "alreadyCovered": [
+      {
+        "name": "sub2api-overlay",
+        "macPaths": [
+          "/Users/money/Desktop/antigravity-team-run",
+          "/Volumes/ThunderSSD/Projects/sub2api-upgrade-lab/sub2api-v1.0.0",
+          "/Volumes/ThunderSSD/中转生意"
+        ],
+        "githubName": "sub2api-overlay",
+        "note": "中转 overlay 已在目录（含 中转生意、upgrade-lab、antigravity）。 → 已覆盖可略"
+      },
+      {
+        "name": "ai-agent-atlas-site",
+        "macPaths": [
+          "/Users/money/Desktop/atlas-cert/ai-agent-atlas-site"
+        ],
+        "githubName": "ai-agent-atlas-site",
+        "note": "站点与 App Store 配套已在作品集；Mac 为正常 checkout。 → 已覆盖可略"
+      },
+      {
+        "name": "ai-agent-atlas",
+        "macPaths": [
+          "/Users/money/Desktop/codefree学习/free-code-architecture-deck",
+          "/Volumes/ThunderSSD/Projects/free-code-architecture-deck"
+        ],
+        "githubName": "ai-agent-atlas",
+        "note": "作品集已有；Desktop 与 ThunderSSD 两份同提交，无额外未发布产品。 → 已覆盖可略"
+      },
+      {
+        "name": "ding-agent-hub",
+        "macPaths": [
+          "/Users/money/Desktop/openclaw/opensource"
+        ],
+        "githubName": "ding-agent-hub",
+        "note": "公开仓已收录；本地 dirty 属开发态，无独立新仓。 → 已覆盖可略"
+      },
+      {
+        "name": "xhs-auto-ops",
+        "macPaths": [
+          "/Users/money/Desktop/小红书"
+        ],
+        "githubName": "xhs-auto-ops",
+        "note": "私有仓已收录。 → 已覆盖可略"
+      },
+      {
+        "name": "DentalExamPrep-iOS",
+        "macPaths": [
+          "/Users/money/Desktop/牙医资格证题库"
+        ],
+        "githubName": "DentalExamPrep-iOS",
+        "note": "App Store「口腔主治题库」已挂；源码仓已在目录。 → 已覆盖可略"
+      },
+      {
+        "name": "kimi-k3-learn-explorer",
+        "macPaths": [
+          "/Users/money/kimi-k3-learn/explorer"
+        ],
+        "githubName": "kimi-k3-learn-explorer",
+        "note": "公开 Pages 已收录；探索向，非主精力。 → 已覆盖可略"
+      },
+      {
+        "name": "wtcc",
+        "macPaths": [
+          "/Users/money/wtf-claude/wtcc"
+        ],
+        "githubName": "wtcc",
+        "note": "公开仓已收录。 → 已覆盖可略"
+      },
+      {
+        "name": "onnx2anything",
+        "macPaths": [
+          "/Users/money/Desktop/convert-clean",
+          "/Volumes/ThunderSSD/Mac桌面归档/convert"
+        ],
+        "githubName": "onnx2anything",
+        "note": "ConvertModel 主站 onnx2anything.com 已在作品集。 → 已覆盖可略"
+      },
+      {
+        "name": "impression-handover",
+        "macPaths": [
+          "/Volumes/ThunderSSD/Mac桌面归档/印模/seal-handover"
+        ],
+        "githubName": "impression-handover",
+        "note": "目录 impression-handover；本地 seal-handover 为公司 GitLab 交接包副本。 → 已覆盖可略"
+      },
+      {
+        "name": "sudoku-app",
+        "macPaths": [
+          "/Volumes/ThunderSSD/Mac桌面归档/数独/sudoku-app"
+        ],
+        "githubName": "sudoku-app",
+        "note": "App Store Sudoku + sudoku-app/sudoku-site 已覆盖。 → 已覆盖可略"
+      },
+      {
+        "name": "sudoku-trainer-web",
+        "macPaths": [
+          "/Volumes/ThunderSSD/Mac桌面归档/数独/数独游戏"
+        ],
+        "githubName": "sudoku-trainer-web",
+        "note": "数独配套 Web 已在目录。 → 已覆盖可略"
+      },
+      {
+        "name": "engram-lan",
+        "macPaths": [
+          "/Volumes/ThunderSSD/Projects/engram-lan"
+        ],
+        "githubName": "engram-lan",
+        "note": "公开仓已收录。 → 已覆盖可略"
+      },
+      {
+        "name": "yolo",
+        "macPaths": [
+          "/Volumes/ThunderSSD/yolo/yolo"
+        ],
+        "githubName": "yolo",
+        "note": "目录已有 yolo；印章/分割相关证据已在多仓（Ncnn/OpenVino Yolov8Seg4Seal 等）。 → 已覆盖可略"
+      },
+      {
+        "name": "getSealCunZhang",
+        "macPaths": [
+          "/Volumes/ThunderSSD/getSealCunZhang"
+        ],
+        "githubName": "getSealCunZhang",
+        "note": "目录已有 getSealCunZhang；本地非 git 工作树。 → 已覆盖可略"
+      }
+    ],
+    "shouldSupplement": [
+      {
+        "name": "中转站比价网站",
+        "macPaths": [
+          "/Volumes/ThunderSSD/中转站比价网站"
+        ],
+        "why": "ConvertModel/中转生意侧最大业务线索之一：本地独立仓、未上 GitHub；token 侧「中转生意+convert」合计极高。作品集目前有 onnx2anything/docs/relay，缺「比价/站点产品」这一环。",
+        "suggestedPortfolioAction": "脱敏后开私有或公开仓，做成中转生意产品卡旁注或独立页；勿写营收数字。",
+        "energy": "ConvertModel中转生意",
+        "priority": 1
+      },
+      {
+        "name": "印模（ClearSeal 工作区）",
+        "macPaths": [
+          "/Volumes/ThunderSSD/Mac桌面归档/印模"
+        ],
+        "why": "印章主业本地 ultraplan 工作区；token「印模」~0.87B。含 getseal_600_work、交接材料。GitHub 有 ClearSeal/getSeal 等，但 Mac 目录是主业日常现场，可提供未公开流程图/交接叙述。",
+        "suggestedPortfolioAction": "从交接包抽脱敏「印章产品线历程」旁注；技术卡仍挂 ClearSeal / getSeal / seal-impression-tool / DocCropSDK。",
+        "energy": "印章主业",
+        "priority": 2
+      },
+      {
+        "name": "P2201 印章打印机工具",
+        "macPaths": [
+          "/Users/money/Desktop/P2201/P2201"
+        ],
+        "why": "印章产线配套打印机工具，本地非 git、未进 67 仓目录。补「算法→设备」闭环证据。",
+        "suggestedPortfolioAction": "并入印章主业故事线（设备侧）；若可开源则单独小仓，否则历程旁注 + 截图。",
+        "energy": "印章主业",
+        "priority": 3
+      },
+      {
+        "name": "getSeal（GitLab orig_repo）",
+        "macPaths": [
+          "/Volumes/ThunderSSD/Mac桌面归档/印模/getseal_600_work/orig_repo"
+        ],
+        "why": "公司 GitLab 检出，2026-08-10 JNI 修复仍 dirty；目录有 getSeal，但 Mac/GitLab 工作树更新，可补交付证据（勿泄露内网地址）。",
+        "suggestedPortfolioAction": "对照 GitHub getSeal：若缺 JNI/.so 交付说明则补 README/交接摘要；保持私有。",
+        "energy": "印章主业",
+        "priority": 4
+      },
+      {
+        "name": "ocr-compare（论文+服务）",
+        "macPaths": [
+          "/Users/money/ocr-compare"
+        ],
+        "why": "学术身份核心；仓已在目录。Mac 2026-08-19 dirty（v4 bridge/乱序）。须保证作品集把论文/消融/神经半马尔可夫对齐放在显眼位置，而非埋在私有仓列表。",
+        "suggestedPortfolioAction": "作品集置顶 OCR/论文卡：摘要 + 消融表 + demo；本地 docs/论文草稿同步进公开叙述（可仍私有仓）。",
+        "energy": "OCR论文",
+        "priority": 5
+      },
+      {
+        "name": "ClearSeal（本地 gitlab-main）",
+        "macPaths": [
+          "/Volumes/ThunderSSD/clearseal-local/ClearSeal"
+        ],
+        "why": "主业产品；目录已有。Mac dirty（环宽 2.2.12，2026-07-10），gitlab-main 分支可能新于对外叙述。",
+        "suggestedPortfolioAction": "核对作品集 ClearSeal 卡是否反映当前版本能力；补脱敏截图/版本线。",
+        "energy": "印章主业",
+        "priority": 6
+      },
+      {
+        "name": "DocCropSDK（统信 UOS）",
+        "macPaths": [
+          "/Users/money/Desktop/统信os/doccrop_src"
+        ],
+        "why": "已在目录；Mac dirty 含 Linux/UOS .so 跨平台（2026-07-09）。补「国产 OS 交付」证据。",
+        "suggestedPortfolioAction": "在印章/OCR 文档线旁注 UOS 适配；token「统信os」~0.21B 印证投入。",
+        "energy": "印章主业",
+        "priority": 7
+      },
+      {
+        "name": "memeory（个人产品）",
+        "macPaths": [
+          "/Users/money/Desktop/memeory"
+        ],
+        "why": "个人产品，~4.8B tokens；仓已在目录。Mac dirty（主动沟通/companion Stage1-3，2026-06-15）。作品集应单独成卡，勿与 memeory-data 混淆。",
+        "suggestedPortfolioAction": "产品卡强调桌面伴侣能力；data 仓仅作历程旁注，不进项目卡。",
+        "energy": "memeory",
+        "priority": 8
+      },
+      {
+        "name": "boss-mini",
+        "macPaths": [
+          "/Users/money/Desktop/boss-mini-win-pack/boss-mini",
+          "/Users/money/Desktop/招聘/boss-mini"
+        ],
+        "why": "已在目录（私有）。Mac 双副本（win-pack + 招聘）且 2026-08-30 v2.0.0 dirty，属近期自动化投入。",
+        "suggestedPortfolioAction": "招聘自动化线与 liepin-assistant 并列成「Agent 工具」卡；注明视觉闭环、非 CDP。",
+        "energy": "自动化Agent工具",
+        "priority": 9
+      },
+      {
+        "name": "liepin_assistant",
+        "macPaths": [
+          "/Users/money/liepin_assistant"
+        ],
+        "why": "目录有 liepin-assistant；Mac 以公司 GitLab 为主远程，2026-08 分支。补与 boss-mini 对照的招聘 Agent 线。",
+        "suggestedPortfolioAction": "与 boss-mini 同一「招聘自动化」故事；保持私有。",
+        "energy": "自动化Agent工具",
+        "priority": 10
+      },
+      {
+        "name": "yunyingxinxi（预标注实验）",
+        "macPaths": [
+          "/Users/money/Desktop/yunyingxinxi"
+        ],
+        "why": "本地 only；commit 提及 standalone prelabel experiment。可能是 OCR/标注业务旁支，未进 GitHub 目录。",
+        "suggestedPortfolioAction": "确认是否并入 OCR/标注历程；若仅一次性实验则归噪音或历程旁注。",
+        "energy": "OCR论文",
+        "priority": 11
+      },
+      {
+        "name": "滑雪游戏簇（snowline / snowpeak / PowderRidge / Steep）",
+        "macPaths": [
+          "/Volumes/ThunderSSD/snowline",
+          "/Volumes/ThunderSSD/snowline-unity",
+          "/Volumes/ThunderSSD/snowpeak",
+          "/Volumes/ThunderSSD/PowderRidge_iOS",
+          "/Volumes/ThunderSSD/Steep_iOS",
+          "/Volumes/ThunderSSD/滑雪游戏godot"
+        ],
+        "why": "本地未上架创意向；token「滑雪游戏/my-game」有投入但用户精力权重低。除非坚持展示创意，否则不进主作品集。",
+        "suggestedPortfolioAction": "默认历程「探索」旁注即可；若要产品化再单开 App Store 线。",
+        "energy": "探索游戏",
+        "priority": 12
+      }
+    ],
+    "memoryItems": [
+      {
+        "name": "secrets",
+        "macPaths": [
+          "/Users/money/secrets"
+        ],
+        "note": "凭证仓（git-crypt）。禁止进作品集；报告已脱敏。目录里虽有同名仓，展示面应排除。",
+        "kind": "记忆"
+      },
+      {
+        "name": "memeory-data（备份）",
+        "macPaths": [
+          "/Users/money/.memeory-data.bak.20260515-191945"
+        ],
+        "note": "设备日聚合/事件数据备份，服务 memeory 采集；属数据/记忆基础设施，不作项目卡。",
+        "kind": "记忆"
+      },
+      {
+        "name": "跳过的会话/备份目录",
+        "macPaths": [
+          "/Users/money/.codex/memories",
+          "/Users/money/.kimi_openclaw/workspace",
+          "/Users/money/.openclaw.backup/workspace",
+          "/Users/money/Desktop/1",
+          "/Users/money/Desktop/coderemoteapp",
+          "/Users/money/Documents/New project",
+          "/Users/money/Documents/New project 2",
+          "/Users/money/Documents/New project 3",
+          "/Users/money/Documents/RL比对",
+          "/Users/money/Documents/办公工具",
+          "/Users/money/Documents/发票识别",
+          "/Users/money/iCloud云盘（归档）/memeory-data"
+        ],
+        "note": "含 .codex/memories、kimi/openclaw workspace 备份、Documents New project*、发票识别等——对话与草稿，进历程不进项目卡。",
+        "kind": "记忆"
+      },
+      {
+        "name": "token 噪声项目名（screenshots / exports / talk-*）",
+        "macPaths": [],
+        "note": "token 统计里的 screenshots、exports、talk-2026-04-26 等是会话与导出，不是工程产品。",
+        "kind": "记忆"
+      }
+    ],
+    "dataItems": [
+      {
+        "name": "memeory-data（GitHub 仓）",
+        "note": "目录已收录但应标为数据仓：devices/<hostname>/ 自动写入，非产品。",
+        "githubName": "memeory-data"
+      },
+      {
+        "name": "印章/YOLO 权重与数据集（推测散落）",
+        "note": "ThunderSSD yolo、印模工作区可能含权重/样本；只作数据资产，不单独挂项目卡。勿把原始客户印模样本公开。",
+        "macPaths": [
+          "/Volumes/ThunderSSD/yolo/yolo",
+          "/Volumes/ThunderSSD/Mac桌面归档/印模"
+        ]
+      },
+      {
+        "name": "招聘副本目录中的简历落盘",
+        "note": "Desktop/招聘 下 boss-mini 运行可能产生简历文件——属业务数据，禁止进作品集。",
+        "macPaths": [
+          "/Users/money/Desktop/招聘/boss-mini"
+        ]
+      }
+    ],
+    "noiseOrArchive": [
+      {
+        "name": "ai",
+        "macPaths": [
+          "/Users/money/Desktop/ai"
+        ],
+        "note": "空/无提交本地 git，噪音。"
+      },
+      {
+        "name": "test",
+        "macPaths": [
+          "/Users/money/Desktop/test"
+        ],
+        "note": "Initial commit 占位。"
+      },
+      {
+        "name": "New project 4",
+        "macPaths": [
+          "/Users/money/Documents/New project 4"
+        ],
+        "note": "空 stub；token 名噪音。"
+      },
+      {
+        "name": "办公自动化",
+        "macPaths": [
+          "/Users/money/Documents/办公自动化"
+        ],
+        "note": "无提交 stub。"
+      },
+      {
+        "name": "convert-clean",
+        "macPaths": [
+          "/Users/money/Desktop/convert-clean"
+        ],
+        "note": "onnx2anything 干净副本，可归档。"
+      },
+      {
+        "name": "antigravity-team-run",
+        "macPaths": [
+          "/Users/money/Desktop/antigravity-team-run"
+        ],
+        "note": "中转 overlay 派生，保留一份 中转生意 即可。"
+      },
+      {
+        "name": "体验demo / 第三方地形演示",
+        "macPaths": [
+          "/Volumes/ThunderSSD/Projects/TerraBrush_fresh",
+          "/Volumes/ThunderSSD/Projects/Terrain3D_github_fresh",
+          "/Volumes/ThunderSSD/godogen",
+          "/Volumes/ThunderSSD/my-game",
+          "/Volumes/ThunderSSD/体验demo/3d-Terrain-Demo",
+          "/Volumes/ThunderSSD/体验demo/Godot-Open-World-Demo",
+          "/Volumes/ThunderSSD/体验demo/Terrain3D",
+          "/Volumes/ThunderSSD/体验demo/gd-snow-shader",
+          "/Volumes/ThunderSSD/体验demo/godot_hterrain_demo",
+          "/Volumes/ThunderSSD/体验demo/snow-game"
+        ],
+        "note": "第三方 fork/演示，已排除，勿补进作品集。"
+      }
+    ],
+    "appStoreAnchors": [
+      {
+        "name": "Sudoku Logic Refined",
+        "demo": "https://apps.apple.com/app/id6769751978",
+        "site": "https://unstoppablecurry.github.io/sudoku-site/",
+        "bundle": "com.unstoppablecurry.sudoku"
+      },
+      {
+        "name": "AI Agent Atlas",
+        "demo": "https://apps.apple.com/app/ai-agent-atlas/id6766811028",
+        "site": "https://unstoppablecurry.github.io/ai-agent-atlas-site/",
+        "bundle": "com.aiagent.atlas"
+      },
+      {
+        "name": "口腔主治题库",
+        "demo": "https://apps.apple.com/cn/app/id6759594555",
+        "site": null,
+        "bundle": "com.wangtianxin.dentalexamprep"
+      }
+    ],
+    "tokenEnergyHints": [
+      {
+        "project": "中转生意",
+        "allTokensApprox": 5587373996,
+        "allBillions": 5.59
+      },
+      {
+        "project": "free-code",
+        "allTokensApprox": 2669917918,
+        "allBillions": 2.67
+      },
+      {
+        "project": "convert",
+        "allTokensApprox": 2332268115,
+        "allBillions": 2.33
+      },
+      {
+        "project": "学习codex",
+        "allTokensApprox": 1439415739,
+        "allBillions": 1.44
+      },
+      {
+        "project": "my-game",
+        "allTokensApprox": 1250572777,
+        "allBillions": 1.25
+      },
+      {
+        "project": "free-code-architecture-deck",
+        "allTokensApprox": 1088121059,
+        "allBillions": 1.09
+      },
+      {
+        "project": "yolo",
+        "allTokensApprox": 877354616,
+        "allBillions": 0.88
+      },
+      {
+        "project": "印模",
+        "allTokensApprox": 867055748,
+        "allBillions": 0.87
+      },
+      {
+        "project": "memeory",
+        "allTokensApprox": 478327077,
+        "allBillions": 0.48
+      },
+      {
+        "project": "sub2api-monitor",
+        "allTokensApprox": 472522987,
+        "allBillions": 0.47
+      },
+      {
+        "project": "codefree学习",
+        "allTokensApprox": 431591845,
+        "allBillions": 0.43
+      },
+      {
+        "project": "sub2api-prod-overlay",
+        "allTokensApprox": 393169194,
+        "allBillions": 0.39
+      }
+    ]
+  },
+  "pass2": {
+    "generatedAt": "2026-09-04 17:45 CST",
+    "pass": 2,
+    "unexpandedDirClassifications": [
+      {
+        "query": "memeory-coredata",
+        "exists": true,
+        "action": "covered",
+        "bucket": "memeory",
+        "newShouldSupplement": false,
+        "paths": [
+          "/Users/money/Desktop/memeory-coredata"
+        ],
+        "actionZh": "已覆盖"
+      },
+      {
+        "query": "liepin_assistant_v2",
+        "exists": true,
+        "action": "supplement",
+        "bucket": "agent",
+        "newShouldSupplement": true,
+        "paths": [
+          "/Users/money/liepin_assistant_v2"
+        ],
+        "actionZh": "补充"
+      },
+      {
+        "query": "rl",
+        "exists": true,
+        "action": "timeline_note",
+        "bucket": "ocr",
+        "newShouldSupplement": false,
+        "paths": [
+          "/Users/money/rl"
+        ],
+        "actionZh": "历程旁注"
+      },
+      {
+        "query": "text-compare-ocr",
+        "exists": true,
+        "action": "timeline_note",
+        "bucket": "ocr",
+        "newShouldSupplement": false,
+        "paths": [
+          "/Volumes/ThunderSSD/文本比对ocr"
+        ],
+        "summary": "Early OCR text-compare prototype 2026-06",
+        "actionZh": "历程旁注"
+      },
+      {
+        "query": "ski-game-ios",
+        "exists": true,
+        "action": "timeline_note",
+        "bucket": "games",
+        "newShouldSupplement": false,
+        "paths": [
+          "/Volumes/ThunderSSD/滑雪游戏ios"
+        ],
+        "summary": "Unity 6 iOS ski runner prototype",
+        "actionZh": "历程旁注"
+      },
+      {
+        "query": "relay-knowledge-product",
+        "exists": true,
+        "action": "supplement",
+        "bucket": "ConvertModel",
+        "newShouldSupplement": true,
+        "paths": [
+          "/Users/money/Desktop/中转站知识付费"
+        ],
+        "summary": "ConvertModel 0-to-1 tutorial handbook FAQ SOP 2026-04-13",
+        "actionZh": "补充"
+      },
+      {
+        "query": "auto-ops-prompts",
+        "exists": true,
+        "action": "covered",
+        "bucket": "agent",
+        "newShouldSupplement": false,
+        "paths": [
+          "/Users/money/Desktop/小红书/skills"
+        ],
+        "summary": "skills inside xhs-auto-ops",
+        "actionZh": "已覆盖"
+      },
+      {
+        "query": "company-ai-docs",
+        "exists": true,
+        "action": "ignore",
+        "bucket": "noise",
+        "newShouldSupplement": false,
+        "paths": [
+          "/Users/money/company-ai-docs"
+        ],
+        "summary": "Default Docusaurus scaffold",
+        "actionZh": "忽略"
+      },
+      {
+        "query": "livis-cli-adapter",
+        "exists": true,
+        "action": "supplement",
+        "bucket": "agent",
+        "newShouldSupplement": true,
+        "paths": [
+          "/Users/money/Desktop/livis-cli-adapter"
+        ],
+        "summary": "Li Auto glasses to grok/claude without OpenClaw 2026-09",
+        "actionZh": "补充"
+      },
+      {
+        "query": "engram-lan-mcp",
+        "exists": true,
+        "action": "covered",
+        "bucket": "memory",
+        "newShouldSupplement": false,
+        "paths": [
+          "/Volumes/ThunderSSD/Projects/engram-lan-mcp"
+        ],
+        "summary": "engram LAN MCP deploy package",
+        "actionZh": "已覆盖"
+      },
+      {
+        "query": "seal-impression-tool-v2",
+        "exists": true,
+        "action": "covered",
+        "bucket": "seal",
+        "newShouldSupplement": false,
+        "paths": [
+          "/Users/money/Documents/kimi/workspace/seal-impression-tool"
+        ],
+        "summary": "v2 is Initial release 2026-08-06 on seal-impression-tool",
+        "isGit": true,
+        "remotes": {
+          "origin": "https://github.com/UnstoppableCurry/seal-impression-tool.git"
+        },
+        "actionZh": "已覆盖"
+      }
+    ],
+    "counts": {
+      "classifiedUnexpandedQueries": 11,
+      "existsTrue": 11,
+      "existsFalse": 0,
+      "newShouldSupplementItems": 3,
+      "actionBreakdown": {
+        "补充": 3,
+        "已覆盖": 4,
+        "历程旁注": 3,
+        "忽略": 1
+      },
+      "memoryBoundarySamples": 8,
+      "dataBoundarySamples": 5
+    },
+    "machine": {
+      "id": "c0c8477c-ec42-4657-b9c5-746c5f64efba",
+      "label": "niuma.local",
+      "user": "money",
+      "note": "read-only; box reports; portfolio untouched"
+    },
+    "extends": [
+      "/workspace/niuma-macmini-own-projects.json",
+      "/workspace/niuma-portfolio-organize.json",
+      "/workspace/niuma-portfolio-organize.md",
+      "/workspace/portfolio-full-catalog.json",
+      "/workspace/portfolio-token-usage.json"
+    ],
+    "markdownReport": "/workspace/niuma-portfolio-organize-pass2.md",
+    "memoryVsDataBoundary": {
+      "secrets": {
+        "path": "/Users/money/secrets",
+        "isGit": true,
+        "remote": "https://github.com/UnstoppableCurry/secrets.git",
+        "gitCrypt": true,
+        "fileCountApprox": 62,
+        "label": "记忆",
+        "action": "never dump; exclude from portfolio"
+      },
+      "codexMemories": {
+        "path": "/Users/money/.codex/memories",
+        "files": 91,
+        "dateRange": "2026-05-09 ~ 2026-09-04",
+        "label": "记忆"
+      },
+      "openclawBackup": {
+        "path": "/Volumes/ThunderSSD/darkworld/open claw/openclaw-backup-2026-03-18",
+        "files": 55239,
+        "label": "记忆"
+      },
+      "yoloWeightsPatternCount": 20,
+      "yinmoPath": "/Volumes/ThunderSSD/Mac桌面归档/印模",
+      "rule": "never open customer seal images into reports",
+      "memeoryDataPaths": [
+        {
+          "path": "/Users/money/.memeory-data",
+          "type": "symlink to iCloud",
+          "label": "数据"
+        },
+        {
+          "path": "/Users/money/.memeory-data.bak.20260515-191945",
+          "files": 327,
+          "dateRange": "2026-05-15 ~ 2026-05-19",
+          "label": "数据"
+        },
+        {
+          "path": "/Users/money/Desktop/core-data",
+          "files": 7577,
+          "dateRange": "2023-11-21 ~ 2026-04-17",
+          "label": "记忆"
+        },
+        {
+          "path": "/Volumes/ThunderSSD/core-data",
+          "files": 7565,
+          "dateRange": "2023-11-21 ~ 2026-03-11",
+          "label": "记忆"
+        }
+      ]
+    },
+    "deltaVsPass1": {
+      "newlyClassifiedDirs": 11,
+      "newShouldSupplement": [
+        {
+          "name": "livis-cli-adapter",
+          "energy": "自动化Agent",
+          "why": "not in catalog; 2026-09 local"
+        },
+        {
+          "name": "中转站知识付费",
+          "energy": "ConvertModel中转生意",
+          "why": "local knowledge delivery"
+        },
+        {
+          "name": "liepin_assistant_v2",
+          "energy": "自动化Agent",
+          "why": "newer than pass1 liepin; no git"
+        }
+      ],
+      "strengthenExistingSupplement": [
+        {
+          "name": "ocr-compare",
+          "via": [
+            "/Users/money/rl",
+            "/Volumes/ThunderSSD/文本比对ocr"
+          ]
+        },
+        {
+          "name": "seal-impression-tool",
+          "via": [
+            "/Users/money/Documents/kimi/workspace/seal-impression-tool"
+          ],
+          "note": "v2 == 2026-08-06 release"
+        }
+      ],
+      "downgradeOrCovered": [
+        {
+          "name": "memeory-coredata(+variants)",
+          "to": "已覆盖/可归档"
+        },
+        {
+          "name": "auto-ops prompts",
+          "to": "已覆盖"
+        },
+        {
+          "name": "engram-lan-mcp",
+          "to": "已覆盖"
+        },
+        {
+          "name": "seal-impression-tool-v2",
+          "to": "已覆盖"
+        },
+        {
+          "name": "ski-game-ios",
+          "to": "历程旁注"
+        },
+        {
+          "name": "company-ai-docs",
+          "to": "忽略"
+        },
+        {
+          "name": "text-compare-ocr / ~/rl",
+          "to": "历程旁注"
+        }
+      ],
+      "pass1ShouldSupplementUnchangedTop": [
+        "中转站比价网站",
+        "印模",
+        "P2201",
+        "getSeal",
+        "ocr-compare",
+        "ClearSeal",
+        "DocCropSDK",
+        "memeory"
+      ]
+    },
+    "careerTimelineDraft": {
+      "language": "zh-CN",
+      "seeMarkdownSection": 3,
+      "disclaimer": "facts vs inferred in MD; no income/health; portfolio untouched",
+      "stages": [
+        {
+          "stage": "2023-04+ seal mainline",
+          "factOrInferred": "fact",
+          "projects": [
+            "ClearSeal",
+            "getSeal",
+            "DocCropSDK",
+            "yolo",
+            "seal-impression-tool",
+            "P2201"
+          ]
+        },
+        {
+          "stage": "late 2025 ~ early 2026 side business + apps",
+          "factOrInferred": "fact+inferred",
+          "projects": [
+            "ai-api-relay",
+            "onnx2anything",
+            "convertmodel-docs",
+            "DentalExamPrep",
+            "AI Agent Atlas"
+          ]
+        },
+        {
+          "stage": "2026-01~05 token peak",
+          "factOrInferred": "fact",
+          "projects": [
+            "中转生意",
+            "中转站知识付费",
+            "memeory",
+            "Sudoku"
+          ]
+        },
+        {
+          "stage": "2026-03~07 games + agent sprouts",
+          "factOrInferred": "fact+inferred",
+          "projects": [
+            "ski-game-ios",
+            "xhs-auto-ops",
+            "engram-lan"
+          ]
+        },
+        {
+          "stage": "2026-06~08 OCR paper + seal delivery",
+          "factOrInferred": "fact",
+          "projects": [
+            "文本比对ocr",
+            "ocr-compare",
+            "~/rl",
+            "DocCrop UOS",
+            "seal-impression-tool v2"
+          ]
+        },
+        {
+          "stage": "2026-07~09 hiring agents + glasses CLI",
+          "factOrInferred": "fact",
+          "projects": [
+            "liepin_assistant_v2",
+            "boss-mini",
+            "livis-cli-adapter",
+            "wtcc"
+          ]
+        }
+      ]
+    },
+    "nextThreeWithoutTouchingPortfolioSite": [
+      "Draft candidate cards for livis-cli-adapter / 中转站知识付费 / liepin_assistant_v2 with redaction checklist (docs only).",
+      "Write OCR paper timeline note from ~/rl + 文本比对ocr (box only).",
+      "Seal mainline: whitelist public screenshots vs blacklist customer samples/weights."
+    ],
+    "summaryNote": "Full Chinese narrative in niuma-portfolio-organize-pass2.md; JSON is structured index for parent agent"
+  },
+  "pass3": {
+    "generatedAt": "2026-09-04 18:25 CST",
+    "pass": 3,
+    "machine": {
+      "id": "c0c8477c-ec42-4657-b9c5-746c5f64efba",
+      "label": "niuma.local",
+      "note": "read-only peeks for README/folder names only; no customer seal images opened; portfolio site untouched; drafts on box only"
+    },
+    "extends": [
+      "/workspace/niuma-portfolio-organize.md",
+      "/workspace/niuma-portfolio-organize.json",
+      "/workspace/niuma-portfolio-organize-pass2.md",
+      "/workspace/niuma-portfolio-organize-pass2.json",
+      "/workspace/portfolio-full-catalog.json"
+    ],
+    "principle": "暂不动作品集站；草稿仅 box；不编造客户/营收；消融数字不编造，只给本地路径",
+    "candidateCards": [
+      {
+        "id": "relay-price-mirror",
+        "标题": "价镜 AI（中转站比价网站）",
+        "精力桶": "ConvertModel中转生意",
+        "解决的问题": "把分散的中转站/聚合站可用性、来源证据与价格缺口收成可筛选目录，方便对照「有没有货、证据从哪来」，而不是只堆模型列表。",
+        "证据来源": {
+          "macPaths": [
+            "/Volumes/ThunderSSD/中转站比价网站"
+          ],
+          "githubName": null,
+          "readmeHint": "本地 README 自称「价镜 AI」Next.js MVP"
+        },
+        "可公开写什么": [
+          "产品名「价镜 AI」",
+          "比价/可用性/来源证据/价格缺口的产品定位",
+          "技术栈（Next.js）与能力列表（搜索、标签、probe 快照）",
+          "勿写营收、客户名单、未核实标价"
+        ],
+        "必须脱敏什么": [
+          "内置 registry 里可追溯到未授权抓取的站点细节若敏感则删",
+          "probe 日志中的密钥/Cookie",
+          "reference-crawl 原始镜像若含第三方版权页则勿整页公开"
+        ],
+        "建议展示形态": "独立卡（中转生意产品环）或与 onnx2anything / convertmodel-docs 并列旁注",
+        "状态": "本地only",
+        "sourcePass": 1,
+        "priority": 1
+      },
+      {
+        "id": "yinmo-workspace",
+        "标题": "印模工作区（印章主业现场）",
+        "精力桶": "印章主业",
+        "解决的问题": "承接 ClearSeal / getSeal / DocCrop 的日常交付、版本对照与 JNI/UOS 打包现场，把算法改动落到可交接的交付物。",
+        "证据来源": {
+          "macPaths": [
+            "/Volumes/ThunderSSD/Mac桌面归档/印模"
+          ],
+          "githubName": null,
+          "docNames": [
+            "版本对照表.md",
+            "RELEASE_NOTES_2.2.8.md",
+            "getSeal_JNI接口交接.md",
+            "工作交接_DocCropSDK.md"
+          ]
+        },
+        "可公开写什么": [
+          "产品线分工叙述（getSeal 检测裁剪 / ClearSeal 去背景抠图 / SealForge 提取归一化）",
+          "版本线数字（如 ClearSeal 2.2.x、getSeal 正式主线）经脱敏后",
+          "UOS/Linux .so 交付形态（不含客户图）",
+          "公开仓名：ClearSeal、getSeal、seal-impression-tool、DocCropSDK-hastext"
+        ],
+        "必须脱敏什么": [
+          "客户印模图与任意业务真章图",
+          "jni_inputs / getseal_测试图 / dpi_test_seals / probe_in*",
+          "内网 GitLab URL 明文",
+          "交接包中的客户/对接人信息",
+          "权重与客户微调样本"
+        ],
+        "建议展示形态": "历程旁注（支撑技术卡，不单独当产品卡）",
+        "状态": "本地only",
+        "sourcePass": 1,
+        "priority": 2
+      },
+      {
+        "id": "p2201",
+        "标题": "P2201 印章打印机工具",
+        "精力桶": "印章主业",
+        "解决的问题": "把印章算法链路接到具体打印机/喷头工具侧，补「算法 → 设备」闭环，便于联调与交接演示。",
+        "证据来源": {
+          "macPaths": [
+            "/Users/money/Desktop/P2201/P2201"
+          ],
+          "githubName": null,
+          "folderHints": [
+            "P2201.sln",
+            "PrinterUtility_1.0.0.8",
+            "交接-claude"
+          ]
+        },
+        "可公开写什么": [
+          "设备侧工具存在性与「算法→打印机」故事线",
+          "技术形态（Windows/.NET 方案级描述）",
+          "不含客户图的联调界面说明"
+        ],
+        "必须脱敏什么": [
+          "交接目录中的客户/对接人姓名与口令类文件",
+          "inputs 下的真章/业务图",
+          "内网或客户现场配置"
+        ],
+        "建议展示形态": "旁注（挂在印章主业故事线下）",
+        "状态": "本地only",
+        "sourcePass": 1,
+        "priority": 3
+      },
+      {
+        "id": "getseal",
+        "标题": "getSeal（印章检测与裁剪交付）",
+        "精力桶": "印章主业",
+        "解决的问题": "从扫描/成像中检测印章区域并裁剪输出标准印模图，通过 JNI/.so 形态交付给上层 Java 服务。",
+        "证据来源": {
+          "macPaths": [
+            "/Volumes/ThunderSSD/Mac桌面归档/印模/getseal_600_work/orig_repo"
+          ],
+          "githubName": "getSeal",
+          "relatedGithub": [
+            "getSealCunZhang",
+            "impression-handover"
+          ]
+        },
+        "可公开写什么": [
+          "能力一句话：检测+裁剪→标准尺寸印模",
+          "交付形态：JNI / .so / Linux·UOS",
+          "与 ClearSeal、seal-impression-tool 的分工",
+          "仓名 getSeal（目录已有，私有）"
+        ],
+        "必须脱敏什么": [
+          "内网 GitLab 地址",
+          "test-data 真章图",
+          "客户项目代号以外的商务信息",
+          "未开源的权重文件"
+        ],
+        "建议展示形态": "独立卡（印章技术卡之一）或与 ClearSeal 合并叙事下的子卡",
+        "状态": "已有GH需加强",
+        "sourcePass": 1,
+        "priority": 4
+      },
+      {
+        "id": "ocr-compare",
+        "标题": "OCR-Compare · 神经半马尔可夫行对齐",
+        "精力桶": "OCR论文",
+        "解决的问题": "两路带噪 OCR 行序列需要对齐成可审阅的增删改编辑脚本；固定 LCS/拍平规则在切分行错误时会把后续全盘报错，需要可学习的保序 n:m 对齐。",
+        "证据来源": {
+          "macPaths": [
+            "/Users/money/ocr-compare",
+            "/Users/money/rl",
+            "/Volumes/ThunderSSD/文本比对ocr"
+          ],
+          "githubName": "ocr-compare",
+          "paperPaths": [
+            "/Users/money/rl/paper_v3/zh/paper.md",
+            "/Users/money/rl/paper_v3/zh/paper.pdf",
+            "/Users/money/ocr-compare/README.md"
+          ]
+        },
+        "可公开写什么": [
+          "论文题与摘要级叙述（半马尔可夫、增删改、SCST 两阶段）",
+          "能力：行级 1:n / n:1 / n:m、乱序与跨页为 v4 开发中",
+          "局限：单页+教师强制顺序下的主结论；不声称阅读顺序无关/跨页检索/字符级操作点",
+          "生产服务形态（本地 Web 比对）可描述，勿绑客户数据"
+        ],
+        "必须脱敏什么": [
+          "训练权重 *.pt 与真实业务扫描件",
+          "内网训练机地址",
+          "若有投稿约束则遵守未发表细节",
+          "无关业务落盘"
+        ],
+        "建议展示形态": "置顶论文卡",
+        "状态": "已有GH需加强",
+        "sourcePass": 1,
+        "priority": 5
+      },
+      {
+        "id": "clearseal",
+        "标题": "ClearSeal（印章去背景 / 抠图）",
+        "精力桶": "印章主业",
+        "解决的问题": "在检测裁剪之后，对印章前景做去背景/抠图与环宽等约束，输出可供后续印模链路使用的干净前景。",
+        "证据来源": {
+          "macPaths": [
+            "/Volumes/ThunderSSD/clearseal-local/ClearSeal"
+          ],
+          "githubName": "ClearSeal",
+          "versionHints": [
+            "README: ClearSeal v2.2.8",
+            "印模/RELEASE_NOTES_2.2.8.md",
+            "版本对照表中的主线版本"
+          ]
+        },
+        "可公开写什么": [
+          "产品名与版本线（经核对后的公开数字）",
+          "Linux/UOS .so 交付",
+          "与 getSeal 的上下游关系",
+          "算法模块名（去背景、环宽约束等）脱敏架构"
+        ],
+        "必须脱敏什么": [
+          "README/交接里的内网 GitLab URL",
+          "test-data / 真章图",
+          "客户现场截图"
+        ],
+        "建议展示形态": "独立卡（印章主叙事核心）",
+        "状态": "已有GH需加强",
+        "sourcePass": 1,
+        "priority": 6
+      },
+      {
+        "id": "doccrop-uos",
+        "标题": "DocCropSDK（统信 UOS / 文档裁剪与有字判定）",
+        "精力桶": "印章主业",
+        "解决的问题": "文档/票面在设备侧需要裁剪，并对「没纸 / 有纸没字 / 有纸有字」做稳健三态判定，适配 Windows 与统信 UOS 等交付环境。",
+        "证据来源": {
+          "macPaths": [
+            "/Users/money/Desktop/统信os/doccrop_src"
+          ],
+          "githubName": "DocCropSDK-hastext",
+          "docNames": [
+            "交付说明_修复版.md"
+          ]
+        },
+        "可公开写什么": [
+          "国产 OS（UOS）适配与跨平台 .so 故事",
+          "三态 API 概念（没纸/有纸没字/有纸有字）",
+          "与印章/文档产线的关系"
+        ],
+        "必须脱敏什么": [
+          "交付说明中的客户票面样例图",
+          "准确率数字上站前须人工复核来源",
+          "内网路径与对接人"
+        ],
+        "建议展示形态": "旁注或独立小卡（印章/文档交付线）",
+        "状态": "已有GH需加强",
+        "sourcePass": 1,
+        "priority": 7
+      },
+      {
+        "id": "memeory",
+        "标题": "memeory（桌面伴侣 + MeMeory iOS）",
+        "精力桶": "memeory",
+        "解决的问题": "把多 Agent CLI 的本地会话聚合成可回顾的结构化日记/仪表盘；并在 iOS 上跑端侧 agent（工具调用 + 本地隐私），与 memeory-data 采集仓严格分开。",
+        "证据来源": {
+          "macPaths": [
+            "/Users/money/Desktop/memeory"
+          ],
+          "githubName": "memeory",
+          "excludeDataRepo": "memeory-data"
+        },
+        "可公开写什么": [
+          "双产品定位（macOS 聚合仪表盘 + iOS 端侧 agent）",
+          "本地隐私 / Keychain / 不上传健康数据等产品原则",
+          "与 wtcc 的技术关系（公开叙述级）"
+        ],
+        "必须脱敏什么": [
+          "个人日记与 core-data 内容",
+          "API Key、同步用 private git 凭证",
+          "memeory-data 设备事件原文",
+          "健康明细"
+        ],
+        "建议展示形态": "独立卡（个人产品）",
+        "状态": "已有GH需加强",
+        "sourcePass": 1,
+        "priority": 8
+      },
+      {
+        "id": "livis-cli-adapter",
+        "标题": "livis-cli-adapter（理想眼镜 → Grok/Claude）",
+        "精力桶": "自动化Agent工具",
+        "解决的问题": "在不安装 OpenClaw 的前提下，按同一网关协议把理想眼镜/同学 App 接到本地 grok/claude CLI。",
+        "证据来源": {
+          "macPaths": [
+            "/Users/money/Desktop/livis-cli-adapter"
+          ],
+          "githubName": null,
+          "stack": "Node / WebSocket gateway"
+        },
+        "可公开写什么": [
+          "架构一句话：眼镜 App → livis gateway → adapter → CLI",
+          "「无 OpenClaw」的差异点",
+          "开源小仓潜力"
+        ],
+        "必须脱敏什么": [
+          "login-attempt.log / serve.log 中的 token 与 Agent ID",
+          "个人 IDaaS 登录痕迹"
+        ],
+        "建议展示形态": "独立小卡或 Agent 工具组旁注",
+        "状态": "本地only",
+        "sourcePass": 2,
+        "priority": 9
+      },
+      {
+        "id": "relay-knowledge-product",
+        "标题": "中转站知识付费（从 0 到 1 手册）",
+        "精力桶": "ConvertModel中转生意",
+        "解决的问题": "把中转站搭建/排错/运营写成可交付的图文教程与 FAQ/SOP，降低从 0 到 1 的操作成本（叙述级，不写营收）。",
+        "证据来源": {
+          "macPaths": [
+            "/Users/money/Desktop/中转站知识付费"
+          ],
+          "githubName": null,
+          "relatedPublicGithub": [
+            "convertmodel-docs",
+            "convertmodel-claude-code-codex-relay",
+            "ai-api-relay"
+          ],
+          "fileHints": [
+            "中转站从0到1搭建手把手图文教程.md",
+            "FAQ与报错字典.md",
+            "卖家运营SOP.md",
+            "购买者执行手册.md"
+          ]
+        },
+        "可公开写什么": [
+          "教程/手册产品形态",
+          "与公开 convertmodel-docs / relay 指南的互补关系",
+          "排错字典类脱敏摘录"
+        ],
+        "必须脱敏什么": [
+          "买家信息、订单与价格",
+          "未脱敏的服务器 IP/面板账号",
+          "第三方品牌侵权风险截图"
+        ],
+        "建议展示形态": "旁注（挂在中转生意产品卡，与比价站同环）",
+        "状态": "本地only",
+        "sourcePass": 2,
+        "priority": 10
+      },
+      {
+        "id": "liepin-assistant-v2",
+        "标题": "liepin_assistant_v2（猎聘招聘 Agent v2）",
+        "精力桶": "自动化Agent工具",
+        "解决的问题": "在猎聘 HR 场景用浏览器自动化 + LLM 管线辅助招聘流程；相对 GitLab 上的 v1，本地 v2 为 PyQt + browser-use 后继实现。",
+        "证据来源": {
+          "macPaths": [
+            "/Users/money/liepin_assistant_v2"
+          ],
+          "githubName": null,
+          "relatedGithub": [
+            "liepin-assistant"
+          ],
+          "stack": "Python / PyQt / Playwright / browser-use"
+        },
+        "可公开写什么": [
+          "招聘 Agent 线的技术选型对比（相对 boss-mini 视觉闭环）",
+          "桌面 UI + browser-use 架构级描述"
+        ],
+        "必须脱敏什么": [
+          "data/ 下简历与候选人信息",
+          "账号 Cookie、公司 GitLab 内网地址",
+          "业务话术中的客户公司名"
+        ],
+        "建议展示形态": "并入「招聘自动化」组合卡，不单独置顶",
+        "状态": "本地only",
+        "sourcePass": 2,
+        "priority": 11
+      },
+      {
+        "id": "hiring-automation-combined",
+        "标题": "招聘自动化（boss-mini + liepin v1/v2）",
+        "精力桶": "自动化Agent工具",
+        "解决的问题": "招聘者端重复操作（收件、筛选、沟通、下载解析）需要自动化；Boss 侧用纯视觉闭环规避 CDP 风控，猎聘侧用浏览器自动化助手形成对照实现。",
+        "证据来源": {
+          "macPaths": [
+            "/Users/money/Desktop/boss-mini-win-pack/boss-mini",
+            "/Users/money/Desktop/招聘/boss-mini",
+            "/Users/money/liepin_assistant",
+            "/Users/money/liepin_assistant_v2"
+          ],
+          "githubName": [
+            "boss-mini",
+            "liepin-assistant"
+          ],
+          "outline": {
+            "boss-mini": "截图→视觉模型给坐标→真鼠标；零 CDP；v1/v2 版本线",
+            "liepin-v1": "GH 私有 liepin-assistant；公司 GitLab 为主远程",
+            "liepin-v2": "本地非 git；PyQt + browser-use"
+          }
+        },
+        "可公开写什么": [
+          "双平台对照叙事（视觉闭环 vs 浏览器自动化）",
+          "boss-mini 公开描述级能力（目录已有 description）",
+          "步骤闭环概念（login/job/scan/inbox…）不写真实候选人"
+        ],
+        "必须脱敏什么": [
+          "简历落盘与评分结果",
+          "招聘账号与会话",
+          "内网 GitLab URL",
+          "客户公司与职位原文"
+        ],
+        "建议展示形态": "独立组合卡（Agent 工具组）",
+        "状态": "已有GH需加强",
+        "sourcePass": "1+2-combined",
+        "priority": 12
+      }
+    ],
+    "candidateCardCount": 12,
+    "ocrTimelineOutline": {
+      "title": "OCR 历程提纲（神经半马尔可夫行对齐）",
+      "stages": [
+        {
+          "阶段": "原型",
+          "时间窗": "约 2026-06（事实：路径与 README 进度表）",
+          "要点": "「文本比对ocr」：标准文档 vs 拍照件，学习式单调序列对齐，替换拍平 LCS；Phase A 纯合成原型。",
+          "证据路径": [
+            "/Volumes/ThunderSSD/文本比对ocr",
+            "/Volumes/ThunderSSD/文本比对ocr/README.md",
+            "/Volumes/ThunderSSD/文本比对ocr/docs"
+          ]
+        },
+        {
+          "阶段": "论文 / 消融",
+          "时间窗": "约 2026-07～08（事实：ocr-compare、~/rl/paper_v3、handoff）",
+          "要点": "ocr-compare 研究管线 + ~/rl 实验/交接；论文稿《面向 OCR 文档比对的神经半马尔可夫行对齐》；v3 同预算消融；v4 乱序/跨页开发中。",
+          "证据路径": [
+            "/Users/money/ocr-compare",
+            "/Users/money/ocr-compare/README.md",
+            "/Users/money/ocr-compare/papers/v4",
+            "/Users/money/rl",
+            "/Users/money/rl/paper_v3/zh/paper.md",
+            "/Users/money/rl/paper_v3/zh/paper.pdf",
+            "/Users/money/rl/paper_v3/en/paper.md",
+            "/Users/money/rl/paper_v3/extracted.md",
+            "/Users/money/rl/paper_v3/raw",
+            "/Users/money/rl/run_ablation_v3.sh",
+            "/Users/money/rl/paper_v3/figures"
+          ]
+        },
+        {
+          "阶段": "服务",
+          "时间窗": "与论文并行～2026-08（事实：仓内 ocr_diff_service）",
+          "要点": "Flask Web：PP-OCRv6 → 神经对齐 → 逐字符差异高亮；私有仓可继续强化公开叙述。",
+          "证据路径": [
+            "/Users/money/ocr-compare/ocr_diff_service",
+            "/Users/money/ocr-compare/frontend",
+            "GitHub: ocr-compare（private）"
+          ]
+        }
+      ],
+      "消融表": {
+        "本地是否有文件": true,
+        "路径": [
+          "/Users/money/ocr-compare/README.md（章节：v3 消融结果）",
+          "/Users/money/rl/paper_v3/extracted.md",
+          "/Users/money/rl/paper_v3/raw/",
+          "/Users/money/rl/paper_v3/zh/paper.md",
+          "/Users/money/rl/paper_v3/figures/（fig1–fig5 等）"
+        ],
+        "作品集数字写入策略": "勿在本 Pass 编造或擅自改写点估计；上站前人工从上述路径核后摘入。论文摘要已写明采样器混杂等局限，公开卡必须同屏保留局限句。",
+        "备注": "README 称完整 5 组消融对照；extracted.md 为从训练机拷回的磁盘读数源。"
+      },
+      "作品集应置顶的公开叙述要点": {
+        "摘要": "两路带噪 OCR 行 → 保序 n:m 半马尔可夫对齐 → 只报告增/删/改（含短合并拆分）；监督路径似然 + SCST 两阶段。",
+        "对齐能力": "行级匹配支持 1:n / n:1 / n:m；双侧 dustbin 吸收无对应行；与训练一致的二维 DP 解码；生产侧可叠加逐字符高亮。",
+        "局限": "主结论在单页、教师强制金标准阅读顺序、主指标 strict_exact_operation_path 下成立；不声称阅读顺序无关、跨页检索或字符级操作点；v4 乱序/跨页为开发中；续训对照存在采样器混杂，不能写成「只改损失」。"
+      }
+    },
+    "sealPublicLists": {
+      "whitelist": [
+        "产品名：ClearSeal、getSeal、getSealCunZhang、seal-impression-tool、DocCropSDK、SealForge（叙述级）",
+        "版本线：经核对的公开版本号（如 ClearSeal 2.2.x 发布说明中的版本，上站前再核）",
+        "算法模块名：检测裁剪、去背景/抠图、环宽约束、印模提取、有纸/有字三态等",
+        "脱敏架构描述：YOLO 检测 → 裁剪 → ClearSeal 清理 → 设备/打印机侧（不含客户图）",
+        "公开 GitHub 仓：seal-impression-tool、ncnn-android-yolov8-seg-Seal、NcnnYolov8Seg4Seal、OpenVinoYolov8Seg4Seal、Yolov8-Seg-HD 等已公开者",
+        "UOS/打印机设备侧说明：仅文字+无客户图的界面/架构示意",
+        "私有仓可点名但不展开内网：ClearSeal、getSeal、DocCropSDK-hastext、impression-handover、yolo"
+      ],
+      "blacklist": [
+        "客户印模图、真章扫描、任意业务样张（含印模目录下业务/测试真章图）",
+        "jni_inputs、jni_inputs_excluded、getseal_测试图、dpi_test_seals、probe_in*、probe_out*、bmp数据、合成印章_多dpi 中的客户或未授权样本",
+        "简历落盘与招聘 data/ 候选人文件",
+        "内网 GitLab URL 明文（如 README/版本对照表中的 192.168.x 地址）",
+        "secrets / git-crypt 解密内容、API Key、Cookie、login 日志",
+        "含客户微调的权重与原始数据集（yolo alldata、annotation_output* 等）",
+        "交接包里的客户信息、对接人口令、未脱敏 HANDOFF"
+      ],
+      "grayZone": [
+        {
+          "item": "delivery_*/delivery md、工作交接_*.md、HANDOVER.md、ultraplan/会话续写 txt",
+          "rule": "需人工脱敏（去客户名、内网 URL、样图、口令）后才能作历程旁注"
+        },
+        {
+          "item": "RELEASE_NOTES / 版本对照表",
+          "rule": "可抽版本数字与分工叙述；必须去掉 GitLab 内网链接与客户环境路径"
+        },
+        {
+          "item": "P2201/交接-claude",
+          "rule": "可保留「设备联调存在」；删除对接人姓名与口令类文件引用"
+        }
+      ]
+    },
+    "counts": {
+      "pass1Top8Cards": 8,
+      "pass2NewCards": 3,
+      "combinedHiringCard": 1,
+      "totalCandidateCards": 12
+    },
+    "markdownReport": "/workspace/niuma-portfolio-organize-pass3.md"
+  }
+}
