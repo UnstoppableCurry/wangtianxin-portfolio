@@ -8,6 +8,47 @@
     });
   }
 
+  const cardRoot = document.querySelector("[data-chronicle-cards]");
+  if (cardRoot) {
+    const cards = Array.from(cardRoot.querySelectorAll("[data-card]"));
+    const search = cardRoot.querySelector("[data-card-search]");
+    const chips = Array.from(cardRoot.querySelectorAll("[data-energy-chip]"));
+    const live = cardRoot.querySelector("[data-card-count]");
+    const empty = cardRoot.querySelector("[data-card-empty]");
+    let energy = "all";
+
+    function applyCards() {
+      const q = ((search && search.value) || "").trim().toLowerCase();
+      let shown = 0;
+      cards.forEach(function (el) {
+        const hay = (el.getAttribute("data-search") || "").toLowerCase();
+        const okQ = !q || hay.includes(q);
+        const okE = energy === "all" || el.getAttribute("data-energy") === energy;
+        const visible = okQ && okE;
+        el.hidden = !visible;
+        if (visible) shown += 1;
+      });
+      chips.forEach(function (chip) {
+        chip.setAttribute("aria-pressed", chip.value === energy ? "true" : "false");
+      });
+      if (live) {
+        live.textContent = "当前显示 " + shown + " / " + cards.length + " 张";
+      }
+      if (empty) empty.hidden = shown !== 0;
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        energy = chip.value || "all";
+        applyCards();
+      });
+    });
+    if (search) {
+      search.addEventListener("input", applyCards);
+    }
+    applyCards();
+  }
+
   const root = document.querySelector("[data-archive]");
   if (!root) return;
 

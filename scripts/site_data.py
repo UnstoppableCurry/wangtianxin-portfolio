@@ -7,6 +7,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from chronicle import build_chronicle
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 
@@ -403,6 +405,8 @@ def build_context() -> dict[str, Any]:
         extras = [by_name[name] for name in spec.get("extra_repos", []) if name in by_name]
         featured.append({**spec, "item": repo, "extras": extras})
 
+    chronicle = build_chronicle(set(by_name))
+
     return {
         "items": items,
         "by_name": by_name,
@@ -421,4 +425,5 @@ def build_context() -> dict[str, Any]:
         "languages": languages,
         "categories": categories,
         "featured": featured,
+        "chronicle": chronicle,
     }

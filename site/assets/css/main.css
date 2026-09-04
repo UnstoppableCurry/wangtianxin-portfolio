@@ -697,8 +697,159 @@ a:hover {
 }
 
 .empty-state[hidden],
-.archive-item[hidden] {
+.archive-item[hidden],
+.candidate-card[hidden] {
   display: none !important;
+}
+
+.chronicle-teaser {
+  margin-top: 1.6rem;
+  padding: 1.2rem 1.15rem 1.3rem;
+  border: 1px solid var(--cinnabar-soft);
+  background:
+    linear-gradient(180deg, var(--seal-wash), transparent 48%),
+    color-mix(in srgb, var(--white) 70%, transparent);
+}
+
+.chronicle-teaser h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+}
+
+.chronicle-hero .inpage-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  margin-top: 1.4rem;
+}
+
+.chronicle-hero .inpage-nav a {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.chronicle-paper {
+  margin-bottom: 1.2rem;
+}
+
+.ocr-stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.ocr-stage {
+  border: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--white) 64%, transparent);
+  padding: 1rem 1.05rem;
+}
+
+.ocr-stage .meta {
+  color: var(--cinnabar);
+  font-size: 0.82rem;
+  margin: 0 0 0.45rem;
+}
+
+.energy-panel .bar-row {
+  grid-template-columns: 9.5rem 1fr auto;
+}
+
+.candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.candidate-card {
+  border: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--white) 64%, transparent);
+  padding: 1.05rem 1.1rem 1.15rem;
+}
+
+.candidate-card h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  margin: 0 0 0.35rem;
+}
+
+.candidate-card h4 {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  margin: 0.9rem 0 0.3rem;
+}
+
+.candidate-card ul,
+.list-panel ul,
+.quiet-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--ink-soft);
+}
+
+.candidate-card li + li,
+.list-panel li + li,
+.quiet-list li + li {
+  margin-top: 0.35rem;
+}
+
+.status-line {
+  color: var(--cinnabar-deep);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.45rem;
+}
+
+.list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.list-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.list-panel {
+  border: 1px solid var(--rule);
+  background: var(--ledger);
+  padding: 1rem 1.05rem 1.1rem;
+}
+
+.list-panel h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  margin: 0 0 0.7rem;
+}
+
+.list-white {
+  box-shadow: inset 3px 0 0 var(--rule-strong);
+}
+
+.list-black {
+  border-color: var(--cinnabar-soft);
+  background:
+    linear-gradient(180deg, var(--seal-wash), transparent 40%),
+    var(--ledger);
+  box-shadow: inset 3px 0 0 var(--cinnabar);
+}
+
+.list-gray {
+  border-style: dashed;
+}
+
+.section.is-secondary {
+  background: color-mix(in srgb, var(--paper-deep) 28%, transparent);
+}
+
+.ablation-note {
+  margin-top: 1rem;
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--cinnabar);
+  border-color: var(--cinnabar);
+  color: #fff8f5;
 }
 
 .page-404 {
@@ -722,7 +873,11 @@ a:hover {
   .paper-panel,
   .apps-grid,
   .capability-grid,
-  .feature {
+  .feature,
+  .ocr-stages,
+  .candidate-grid,
+  .list-grid,
+  .list-grid.two {
     grid-template-columns: 1fr;
   }
 
